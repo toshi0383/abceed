@@ -1,0 +1,90 @@
+name: Abceed
+options:
+  minimumXcodeGenVersion: 2.14.0
+  deploymentTarget: 13.2
+  bundleIdPrefix: jp.toshi0383
+targets:
+  Abceed:
+    platform: iOS
+    type: application
+    sources:
+      - Abceed
+    dependencies:
+      - carthage: RxSwift
+      - carthage: RxRelay
+      - carthage: RxCocoa
+      - target: AbceedCore
+      - target: AbceedUI
+  UILibrary:
+    platform: iOS
+    type: application
+    sources:
+      - UILibrary
+    dependencies:
+      - carthage: RxSwift
+      - carthage: RxRelay
+      - carthage: RxCocoa
+      - target: AbceedCore
+      - target: AbceedUI
+  AbceedCore:
+    platform: iOS
+    type: framework
+    sources:
+      - AbceedCore/
+    dependencies:
+      - carthage: RxSwift
+      - carthage: RxRelay
+      - carthage: RxCocoa
+  AbceedCoreTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - AbceedCoreTests/
+    dependencies:
+      - target: AbceedCore
+      - target: TestHelper
+      - carthage: RxSwift
+      - carthage: RxCocoa
+    scheme:
+      testTargets:
+        - AbceedCoreTests
+      gatherCoverageData: true
+  AbceedLogic:
+    platform: iOS
+    type: framework
+    sources:
+      - AbceedLogic/
+    dependencies:
+      - target: AbceedCore
+      - carthage: RxSwift
+      - carthage: RxCocoa
+  AbceedLogicTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - AbceedLogicTests/
+    dependencies:
+      - target: AbceedLogic
+      - target: TestHelper
+      - carthage: RxSwift
+      - carthage: RxCocoa
+    scheme:
+      testTargets:
+        - AbceedLogicTests
+      gatherCoverageData: true
+  AbceedUI:
+    platform: iOS
+    type: framework
+    sources:
+      - AbceedUI/
+    dependencies:
+      - carthage: RxSwift
+      - carthage: RxRelay
+      - carthage: RxCocoa
+      - target: AbceedCore
+      - target: AbceedLogic
+  TestHelper:
+    platform: iOS
+    type: framework
+    sources:
+      - TestHelper/

@@ -1,0 +1,10 @@
+.DS_Store/
+*.swp
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+build/
+DerivedData/
+.build/
+*.xcodeproj
+Carthage/
