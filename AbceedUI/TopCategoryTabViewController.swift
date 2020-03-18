@@ -4,8 +4,8 @@ import RxSwift
 import SwipeMenuViewController
 import UIKit
 
-public final class BookListTabViewController: SwipeMenuViewController {
-    private let viewModel: BookListTabViewModelType
+public final class TopCategoryTabViewController: SwipeMenuViewController {
+    private let viewModel: TopCategoryTabViewModelType
     private let disposeBag = DisposeBag()
 
     private var loadingIndicator: UIActivityIndicatorView?
@@ -17,10 +17,11 @@ public final class BookListTabViewController: SwipeMenuViewController {
         options.tabView.style = .segmented
         options.tabView.itemView.selectedTextColor = .red
         options.tabView.additionView.backgroundColor = .red
+        options.isSafeAreaEnabled = true
         return options
     }()
 
-    public init(viewModel: BookListTabViewModelType) {
+    public init(viewModel: TopCategoryTabViewModelType) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -114,17 +115,10 @@ public final class BookListTabViewController: SwipeMenuViewController {
             fatalError()
         }
 
-        let viewModel = BookListViewModel(topCategory: topCategory)
-        return BookListViewController(viewModel: viewModel)
+        let viewModel = SubCategoryListViewModel(topCategory: topCategory)
+        let vc = SubCategoryListViewController(viewModel: viewModel)
+        addChild(vc)
+        return vc
     }
 
-}
-
-extension UIView {
-    func pinCenter(_ other: UIView) {
-        NSLayoutConstraint.activate([
-            self.centerXAnchor.constraint(equalTo: other.centerXAnchor),
-            self.centerYAnchor.constraint(equalTo: other.centerYAnchor),
-        ])
-    }
 }

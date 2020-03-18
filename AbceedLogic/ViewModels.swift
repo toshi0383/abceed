@@ -1,7 +1,7 @@
 import AbceedCore
 import RxSwift
 
-public protocol BookListTabViewModelType {
+public protocol TopCategoryTabViewModelType {
     var state: Property<State> { get }
 }
 
@@ -44,7 +44,7 @@ public enum State: Equatable {
     }
 }
 
-public final class BookListTabViewModel: BookListTabViewModelType {
+public final class TopCategoryTabViewModel: TopCategoryTabViewModelType {
     public let state: Property<State>
 
     public init(requestData: () -> Observable<MockBookAllResponse>) {
@@ -59,17 +59,29 @@ public final class BookListTabViewModel: BookListTabViewModelType {
     }
 }
 
-public protocol BookListViewModelType {
+public protocol SubCategoryListViewModelType {
     var topCategory: TopCategory { get }
     var subCategories: Property<[AbceedCore.Category]> { get }
 }
 
-public final class BookListViewModel: BookListViewModelType {
+public final class SubCategoryListViewModel: SubCategoryListViewModelType {
     public let topCategory: TopCategory
     public let subCategories: Property<[AbceedCore.Category]>
 
     public init(topCategory: TopCategory) {
         self.topCategory = topCategory
         self.subCategories = Property(topCategory.subCategories)
+    }
+}
+
+public protocol BookListViewModelType {
+    var books: Property<[Book]> { get }
+}
+
+public final class BookListViewModel: BookListViewModelType {
+    public let books: Property<[Book]>
+
+    public init(books: [Book]) {
+        self.books = Property(books)
     }
 }

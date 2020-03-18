@@ -4,19 +4,19 @@ import TestHelper
 import RxSwift
 @testable import AbceedLogic
 
-final class BookListTabViewModelTests: XCTestCase {
+final class TopCategoryTabViewModelTests: XCTestCase {
     func testStateSuccessful() {
-        let t = BookListTabViewModel { MockResponse.just }
+        let t = TopCategoryTabViewModel { MockResponse.just }
         XCTAssertTrue(t.state.value.isSuccessful)
     }
 
     func testStateEmpty() {
-        let t = BookListTabViewModel { .empty() }
+        let t = TopCategoryTabViewModel { .empty() }
         XCTAssertEqual(t.state.value, .loading)
     }
 
     func testStateError() {
-        let t = BookListTabViewModel { MockResponse.error }
+        let t = TopCategoryTabViewModel { MockResponse.error }
         XCTAssertEqual(t.state.value, .error("データを取得できませんでした。"))
     }
 }

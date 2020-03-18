@@ -1,5 +1,6 @@
 import AbceedUI
 import AbceedCore
+import AbceedLogic
 import TestHelper
 import UIKit
 
@@ -15,12 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private let viewModel = MockBookListTabViewModel(state: .successful(allData()))
+    private let viewModel = MockTopCategoryTabViewModel(state: .successful(allData()))
+
+    private func makeVC() -> UIViewController {
+        return TopCategoryTabViewController(viewModel: viewModel)
+//        let viewModel = SubCategoryListViewModel(topCategory: allData()[0])
+//        let vc = SubCategoryListViewController(viewModel: viewModel)
+//        return vc
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
-        window.rootViewController = BookListTabViewController(viewModel: viewModel)
+        window.rootViewController = makeVC()
         window.makeKeyAndVisible()
 
         return true

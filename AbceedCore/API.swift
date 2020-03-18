@@ -58,30 +58,30 @@ public struct Category: Decodable, Equatable {
         name = try values.decode(String.self, forKey: .name)
         books = try values.decode([Book].self, forKey: .books)
     }
+}
 
-    public struct Book: Decodable, Equatable {
-        public let id: String
-        public let name: String
-        public let publisher: String
-        public let author: String
-        public let imgURL: String
+public struct Book: Decodable, Equatable {
+    public let id: String
+    public let name: String
+    public let publisher: String
+    public let author: String
+    public let imgURL: String
 
-        enum CodingKeys: String, CodingKey {
-            case id = "id_book"
-            case name = "name_book"
-            case publisher = "publisher"
-            case author = "author"
-            case imgURL = "img_url"
-        }
+    enum CodingKeys: String, CodingKey {
+        case id = "id_book"
+        case name = "name_book"
+        case publisher = "publisher"
+        case author = "author"
+        case imgURL = "img_url"
+    }
 
-        public init(from decoder: Decoder) throws {
-            let values = try decoder.container(keyedBy: CodingKeys.self)
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
 
-            id = try values.decode(String.self, forKey: .id)
-            name = try values.decode(String.self, forKey: .name)
-            publisher = try values.decode(String.self, forKey: .publisher)
-            author = try values.decode(String.self, forKey: .author)
-            imgURL = try values.decode(String.self, forKey: .imgURL)
-        }
+        id = try values.decode(String.self, forKey: .id)
+        name = try values.decode(String.self, forKey: .name)
+        publisher = try values.decode(String.self, forKey: .publisher)
+        author = try values.decode(String.self, forKey: .author)
+        imgURL = try values.decode(String.self, forKey: .imgURL)
     }
 }

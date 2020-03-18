@@ -83,6 +83,8 @@ targets:
       - carthage: RxSwift
       - carthage: RxRelay
       - carthage: RxCocoa
+      - carthage: Nuke
+      - carthage: RxNuke
       - carthage: SwipeMenuViewController
       - target: AbceedCore
       - target: AbceedLogic

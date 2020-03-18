@@ -1,2 +1,4 @@
 github "ReactiveX/RxSwift" "5.1.0"
+github "kean/Nuke" "8.4.0"
+github "kean/RxNuke" "0.11.0"
 github "yysskk/SwipeMenuViewController" "4.1.0"
