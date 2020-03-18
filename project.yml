@@ -24,8 +24,10 @@ targets:
       - carthage: RxSwift
       - carthage: RxRelay
       - carthage: RxCocoa
+      - carthage: SwipeMenuViewController
       - target: AbceedCore
       - target: AbceedUI
+      - target: TestHelper
   AbceedCore:
     platform: iOS
     type: framework
@@ -81,6 +83,7 @@ targets:
       - carthage: RxSwift
       - carthage: RxRelay
       - carthage: RxCocoa
+      - carthage: SwipeMenuViewController
       - target: AbceedCore
       - target: AbceedLogic
   TestHelper:

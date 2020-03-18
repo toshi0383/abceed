@@ -30,6 +30,18 @@ public enum State: Equatable {
 
         return false
     }
+
+    public var topCategories: [TopCategory] {
+        guard case .successful(let topCategories) = self else {
+            return []
+        }
+
+        return topCategories
+    }
+
+    public func topCategory(at: Int) -> TopCategory? {
+        return topCategories[at]
+    }
 }
 
 public final class BookListTabViewModel: BookListTabViewModelType {
