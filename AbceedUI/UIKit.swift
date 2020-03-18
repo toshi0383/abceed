@@ -16,4 +16,16 @@ extension UIView {
             self.centerYAnchor.constraint(equalTo: other.centerYAnchor),
         ])
     }
+
+    func applyShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.4
+        layer.shadowOffset = CGSize(width: 1.0, height: 0.5)
+        layer.shadowRadius = 2
+        layer.masksToBounds = false
+    }
+}
+
+func / (_ size: CGSize, _ r: CGFloat) -> CGSize {
+    return CGSize(width: size.width / r, height: size.height / r)
 }

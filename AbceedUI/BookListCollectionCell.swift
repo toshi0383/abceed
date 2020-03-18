@@ -1,12 +1,11 @@
 import AbceedLogic
-import Nuke
-import RxNuke
 import RxSwift
 import UIKit
 
 final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    static let verticalMargin: CGFloat = 0
+    static let verticalMargin: CGFloat = bottomMargin
+    static let bottomMargin: CGFloat = 8 // for drop shadow
 
     private var collectionView: UICollectionView?
     private let cellID = "bookCell"
@@ -15,6 +14,8 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
     func configure(_ viewModel: BookListViewModelType) {
         self.viewModel = viewModel
 
+        contentView.clipsToBounds = false
+        clipsToBounds = false
 
         if collectionView == nil {
             let layout = UICollectionViewFlowLayout() //FlexibleWidthByImageSizeLayout()
@@ -28,7 +29,9 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
             contentView.addSubview(collectionView)
             collectionView.pinEdges(contentView)
             collectionView.backgroundColor = .clear
-            collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+            let bottomMargin = BookListCollectionCell.bottomMargin
+            collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: bottomMargin, right: 16)
+            collectionView.clipsToBounds = false
         }
 
         collectionView!.reloadData()
@@ -66,68 +69,10 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
         }
 
         print("default: \(defaultSize)")
-        return defaultSize
+        return defaultSize / 2
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
-}
-
-final class BookCell: UICollectionViewCell {
-
-    static let fixedWidth: CGFloat = 150
-    static let fixedHeight: CGFloat = 242
-
-    private lazy var thumbnailView: UIImageView = {
-        let v = UIImageView()
-        v.backgroundColor = .lightGray
-        v.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(v)
-        v.pinEdges(self.contentView)
-        v.contentMode = .scaleAspectFit
-        return v
-    }()
-
-    private(set) var resolvedImageSize: CGSize?
-
-    private var reuseDisposeBag = DisposeBag()
-
-    func configure(_ imgURL: String, setNeedsLayout: @escaping () -> ()) {
-        reuseDisposeBag = DisposeBag()
-        resolvedImageSize = nil
-
-        guard let url = URL(string: imgURL) else { return }
-
-        ImagePipeline.shared.rx.loadImage(with: url)
-            .subscribe(onSuccess: { [weak self] result in
-                self?.setImage(result.image)
-                setNeedsLayout()
-            })
-            .disposed(by: reuseDisposeBag)
-    }
-
-    private func setImage(_ image: UIImage) {
-
-        let origSize = image.size
-
-        if origSize.height == BookCell.fixedHeight {
-            resolvedImageSize = origSize / 2
-            thumbnailView.image = image
-            return
-        }
-
-        let newSize = CGSize(
-            width: origSize.width * BookCell.fixedHeight / origSize.height,
-            height: BookCell.fixedHeight
-        )
-
-        resolvedImageSize = newSize / 2
-
-        thumbnailView.image = image
-    }
-}
-
-private func / (_ size: CGSize, _ r: CGFloat) -> CGSize {
-    return CGSize(width: size.width / r, height: size.height / r)
 }
