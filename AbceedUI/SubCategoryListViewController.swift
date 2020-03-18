@@ -26,7 +26,6 @@ public final class SubCategoryListViewController: UITableViewController {
     // MARK: UITableView
 
     override public func numberOfSections(in tableView: UITableView) -> Int {
-        print("\(viewModel.topCategory.name): \(viewModel.subCategories.value.count)")
         return viewModel.subCategories.value.count
     }
 
