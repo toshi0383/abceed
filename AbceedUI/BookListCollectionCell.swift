@@ -48,8 +48,8 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let defaultSize = CGSize(width: BookCell.fixedWidth, height: BookCell.fixedHeight)
-        var size = defaultSize / 2
+
+        var size = BookCell.defaultSize / 2
 
         if collectionView.indexPathsForVisibleItems.contains(where: { $0.item == indexPath.item }) {
 
