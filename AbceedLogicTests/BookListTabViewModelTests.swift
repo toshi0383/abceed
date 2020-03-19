@@ -6,18 +6,31 @@ import RxSwift
 
 final class TopCategoryTabViewModelTests: XCTestCase {
     func testStateSuccessful() {
-        let t = TopCategoryTabViewModel { MockResponse.just }
+        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(MockResponse.just))
         XCTAssertTrue(t.state.value.isSuccessful)
     }
 
     func testStateEmpty() {
-        let t = TopCategoryTabViewModel { .empty() }
+        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(.empty()))
         XCTAssertEqual(t.state.value, .loading)
     }
 
     func testStateError() {
-        let t = TopCategoryTabViewModel { MockResponse.error }
+        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(MockResponse.error))
         XCTAssertEqual(t.state.value, .error("データを取得できませんでした。"))
+    }
+}
+
+final class MockBookRepository: BookRepository {
+
+    private let mockResponse: Observable<MockBookAllResponse>
+
+    init(_ mockResponse: Observable<MockBookAllResponse>) {
+        self.mockResponse = mockResponse
+    }
+
+    func getAll() -> Observable<MockBookAllResponse> {
+        return mockResponse
     }
 }
 
