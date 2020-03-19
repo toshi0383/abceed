@@ -2,9 +2,11 @@ import AbceedLogic
 import UIKit
 
 public final class SubCategoryListViewController: UITableViewController {
+
     private let viewModel: SubCategoryListViewModelType
     private let cellID = "bookListCollectionCell"
     private let headerID = "subCategoryHeaderView"
+    private let headerHeight: CGFloat = 50 // including vertical margin
 
     public init(viewModel: SubCategoryListViewModelType) {
         self.viewModel = viewModel
@@ -24,6 +26,16 @@ public final class SubCategoryListViewController: UITableViewController {
     }
 
     // MARK: UITableView
+
+    public override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        // スクロール時にヘッダー位置を(見た目上)固定しないためのワークアラウンド
+        if scrollView.contentOffset.y <= headerHeight && scrollView.contentOffset.y >= 0 {
+            scrollView.contentInset = UIEdgeInsets(top: -scrollView.contentOffset.y, left: 0, bottom: 0, right: 0);
+        } else if scrollView.contentOffset.y >= headerHeight {
+            scrollView.contentInset = UIEdgeInsets(top: -headerHeight, left: 0, bottom: 0, right: 0);
+        }
+    }
 
     override public func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.subCategories.value.count
@@ -49,42 +61,8 @@ public final class SubCategoryListViewController: UITableViewController {
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return BookCell.fixedHeight / 2 + BookListCollectionCell.verticalMargin
     }
-}
 
-final class SubCategoryHeaderView: UITableViewHeaderFooterView {
-    var title: String? {
-        set {
-            label.text = newValue
-        }
-        get {
-            return label.text
-        }
-    }
-
-    private let base = UIView()
-    private let label = UILabel()
-
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-
-        base.translatesAutoresizingMaskIntoConstraints = false
-        base.backgroundColor = .white
-        contentView.addSubview(base)
-
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .boldSystemFont(ofSize: 18)
-
-        base.addSubview(label)
-        base.pinEdges(contentView)
-
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: base.topAnchor, constant: 14),
-            label.leadingAnchor.constraint(equalTo: base.leadingAnchor, constant: 20),
-            label.centerYAnchor.constraint(equalTo: base.centerYAnchor),
-        ])
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return headerHeight
     }
 }

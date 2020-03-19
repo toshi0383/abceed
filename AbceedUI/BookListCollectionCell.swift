@@ -14,9 +14,6 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
     func configure(_ viewModel: BookListViewModelType) {
         self.viewModel = viewModel
 
-        contentView.clipsToBounds = false
-        clipsToBounds = false
-
         if collectionView == nil {
             let layout = UICollectionViewFlowLayout() //FlexibleWidthByImageSizeLayout()
             layout.scrollDirection = .horizontal
@@ -27,11 +24,10 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
             self.collectionView = collectionView
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(collectionView)
-            collectionView.pinEdges(contentView)
+            collectionView.pinEdges(self)
             collectionView.backgroundColor = .clear
             let bottomMargin = BookListCollectionCell.bottomMargin
             collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: bottomMargin, right: 16)
-            collectionView.clipsToBounds = false
         }
 
         collectionView!.reloadData()
@@ -53,9 +49,9 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let defaultSize = CGSize(width: BookCell.fixedWidth, height: BookCell.fixedHeight)
+        var size = defaultSize / 2
 
         if collectionView.indexPathsForVisibleItems.contains(where: { $0.item == indexPath.item }) {
-            var size = defaultSize
 
             if let cell = collectionView.cellForItem(at: indexPath) as? BookCell,
                 let resolvedSize = cell.resolvedImageSize {
@@ -65,7 +61,7 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
             return size
         }
 
-        return defaultSize / 2
+        return size
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

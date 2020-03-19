@@ -10,7 +10,7 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
 
     private var loadingIndicator: UIActivityIndicatorView?
     private var errorLabel: UIView?
-    private var tabView: UIView?
+    private var border: UIView?
 
     private var options: SwipeMenuViewOptions = {
         var options = SwipeMenuViewOptions()
