@@ -1,18 +1,26 @@
+import AbceedCore
 import AbceedLogic
 import RxSwift
 import UIKit
 
-final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol BookListDelegate: AnyObject {
+    func bookList(_ collectionView: UICollectionView, didSelectBook book: Book)
+}
+
+final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
 
     static let verticalMargin: CGFloat = bottomMargin
     static let bottomMargin: CGFloat = 8 // for drop shadow
+
+    weak var delegate: BookListDelegate?
 
     private var collectionView: UICollectionView?
     private let cellID = "bookCell"
     private var viewModel: BookListViewModelType?
 
-    func configure(_ viewModel: BookListViewModelType) {
+    func configure(_ viewModel: BookListViewModelType, delegate: BookListDelegate?) {
         self.viewModel = viewModel
+        self.delegate = delegate
 
         if collectionView == nil {
             let layout = UICollectionViewFlowLayout() //FlexibleWidthByImageSizeLayout()
@@ -66,5 +74,11 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let books = viewModel?.books.value else { return }
+
+        delegate?.bookList(collectionView, didSelectBook: books[indexPath.item])
     }
 }

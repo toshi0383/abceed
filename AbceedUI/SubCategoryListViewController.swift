@@ -54,7 +54,10 @@ public final class SubCategoryListViewController: UITableViewController {
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID)! as! BookListCollectionCell
         let section = indexPath.section
-        cell.configure(BookListViewModel(books: viewModel.subCategories.value[section].books))
+
+        cell.configure(BookListViewModel(books: viewModel.subCategories.value[section].books),
+                       delegate: parent as? BookListDelegate)
+
         return cell
     }
 

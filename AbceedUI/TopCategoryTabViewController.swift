@@ -5,7 +5,9 @@ import SwipeMenuViewController
 import UIKit
 
 public final class TopCategoryTabViewController: SwipeMenuViewController {
+
     private let viewModel: TopCategoryTabViewModelType
+    private let wireframe: BookListWireframe
     private let disposeBag = DisposeBag()
 
     private var loadingIndicator: UIActivityIndicatorView?
@@ -21,17 +23,11 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
         return options
     }()
 
-    public init(viewModel: TopCategoryTabViewModelType) {
+    public init(viewModel: TopCategoryTabViewModelType, wireframe: BookListWireframe) {
         self.viewModel = viewModel
+        self.wireframe = wireframe
 
         super.init(nibName: nil, bundle: nil)
-
-        // TODO
-//        viewModel.presentDetailView
-//            .observeOn(ConcurrentMainScheduler.instance)
-//            .subscribe(onNext: { subcategory in
-//            })
-//            .disposed(by: disposeBag)
     }
 
     required init?(coder: NSCoder) {
@@ -44,6 +40,7 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
         view.backgroundColor = .white
 
         viewModel.state.asObservable()
+            .observeOn(ConcurrentMainScheduler.instance)
             .subscribe(onNext: { [weak self] state in
                 guard let me = self else { return }
 
@@ -121,4 +118,10 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
         return vc
     }
 
+}
+
+extension TopCategoryTabViewController: BookListDelegate {
+    func bookList(_ collectionView: UICollectionView, didSelectBook book: Book) {
+        wireframe.navigateToBookDetail(book: book)
+    }
 }

@@ -17,9 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private let viewModel = MockTopCategoryTabViewModel(state: .successful(allData()))
+    private let wireframe = MockBookListWireframe()
 
     private func makeVC() -> UIViewController {
-        return TopCategoryTabViewController(viewModel: viewModel)
+        return TopCategoryTabViewController(viewModel: viewModel,
+                                            wireframe: wireframe)
 //        let viewModel = SubCategoryListViewModel(topCategory: allData()[0])
 //        let vc = SubCategoryListViewController(viewModel: viewModel)
 //        return vc

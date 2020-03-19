@@ -60,6 +60,8 @@ targets:
       - target: AbceedCore
       - carthage: RxSwift
       - carthage: RxCocoa
+      - carthage: Realm
+      - carthage: RealmSwift
   AbceedLogicTests:
     platform: iOS
     type: bundle.unit-test

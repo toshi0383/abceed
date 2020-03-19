@@ -47,11 +47,11 @@ public enum State: Equatable {
 public final class TopCategoryTabViewModel: TopCategoryTabViewModelType {
     public let state: Property<State>
 
-    public init(requestData: () -> Observable<MockBookAllResponse>) {
+    public init(bookRepository: BookRepository) {
 
         state = Property(
             initial: .loading,
-            then: requestData()
+            then: bookRepository.getAll()
                 .optionalizeError()
                 .map(State.init(response:))
         )
@@ -83,5 +83,22 @@ public final class BookListViewModel: BookListViewModelType {
 
     public init(books: [Book]) {
         self.books = Property(books)
+    }
+}
+
+public protocol BookDetailViewModelType {
+    var book: Book { get }
+    var isMybook: Property<Bool> { get }
+}
+
+public final class BookDetailViewModel: BookDetailViewModelType {
+    public let book: Book
+    public let isMybook: Property<Bool>
+    private let mybookRepository: MybookRepository
+
+    public init(book: Book, mybookRepository: MybookRepository) {
+        self.book = book
+        self.mybookRepository = mybookRepository
+        isMybook = mybookRepository.isMybook(book.id)
     }
 }
