@@ -9,11 +9,7 @@ public protocol MybookRepository {
     func unregisterMybook(_ bookID: String)
 }
 
-private func restoreMybooks() -> [String] {
-    let realm = try! Realm()
-    return realm.objects(Mybook.self).map { $0.id }
-}
-
+/// 簡略化のためDataStoreの役割も兼ねる。大きくなってきたらDataStoreにリファクタ想定。
 public class MybookRepositoryImpl: MybookRepository {
 
     private var mybooks: [String] = restoreMybooks() {
@@ -72,4 +68,9 @@ final class Mybook: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
+}
+
+private func restoreMybooks() -> [String] {
+    let realm = try! Realm()
+    return realm.objects(Mybook.self).map { $0.id }
 }

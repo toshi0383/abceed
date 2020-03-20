@@ -107,6 +107,15 @@ final class BookDetailViewController: UIViewController {
                 self?.viewModel.tapMybookButton()
             })
             .disposed(by: disposeBag)
+
+        viewModel.showMessage
+            .observeOn(ConcurrentMainScheduler.instance)
+            .subscribe(onNext: { [weak self] message in
+                let a = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+                a.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self?.navigationController?.present(a, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -165,6 +174,24 @@ class Button: UIView {
 
     required init?(coder: NSCoder) {
         fatalError()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+
+        label.alpha = 0.2
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+
+        label.alpha = 1.0
+    }
+
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+
+        label.alpha = 1.0
     }
 }
 
