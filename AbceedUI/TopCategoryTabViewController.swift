@@ -7,7 +7,7 @@ import UIKit
 public final class TopCategoryTabViewController: SwipeMenuViewController {
 
     private let viewModel: TopCategoryTabViewModelType
-    private let wireframe: BookListWireframe
+    private let wireframe: TopCategoryTabWireframe
     private let disposeBag = DisposeBag()
 
     private var loadingIndicator: UIActivityIndicatorView?
@@ -26,7 +26,7 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
         return options
     }()
 
-    public init(viewModel: TopCategoryTabViewModelType, wireframe: BookListWireframe) {
+    public init(viewModel: TopCategoryTabViewModelType, wireframe: TopCategoryTabWireframe) {
         self.viewModel = viewModel
         self.wireframe = wireframe
 

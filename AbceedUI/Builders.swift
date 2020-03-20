@@ -33,7 +33,7 @@ public final class TopCategoryTabBuilder {
             bookRepository: bookRepository
         )
 
-        let wireframe = BookListWireframeImpl()
+        let wireframe = TopCategoryTabWireframeImpl()
 
         let vc = TopCategoryTabViewController(viewModel: viewModel,
                                               wireframe: wireframe)

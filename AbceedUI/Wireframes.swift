@@ -2,11 +2,11 @@ import AbceedCore
 import AbceedLogic
 import UIKit
 
-public protocol BookListWireframe {
+public protocol TopCategoryTabWireframe {
     func navigateToBookDetail(book: Book)
 }
 
-public final class BookListWireframeImpl: BookListWireframe {
+public final class TopCategoryTabWireframeImpl: TopCategoryTabWireframe {
     public weak var navigationController: UINavigationController?
 
     public init() {}
