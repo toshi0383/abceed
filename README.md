@@ -42,7 +42,7 @@ All UI components are separated from main target, which means I can create app t
 This allows to build interested View or ViewController independently.  
 This boosts up the UI development iteration cycle especially when project gets very large.
 
-- UILibrary: Runs UI with mock data. Could have been a playground too.
+- UILibrary: Runs UI with mock data. Could have been a Xcode Playground too.
 
 # References
 
