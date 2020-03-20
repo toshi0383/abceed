@@ -39,9 +39,22 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
         collectionView!.reloadData()
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        setContentInset()
+    }
+
     override func updateConstraints() {
         super.updateConstraints()
 
+        setContentInset()
+
+        // scroll offset isn't automatically fixed on traitCollection change
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
+
+    private func setContentInset() {
         // NOTE:
         //   safe area aware contentInset
         //   collectionView is pinned to cell, not contentView, otherwise cell's reuse behavior would be visible to user.

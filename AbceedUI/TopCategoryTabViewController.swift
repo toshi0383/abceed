@@ -62,6 +62,12 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
         navigationController?.isNavigationBarHidden = true
     }
 
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        swipeMenuView.tabView?.reloadData()
+    }
+
     private func showSuccessfulState() {
         loadingIndicator?.stopAnimating()
         loadingIndicator?.removeFromSuperview()
