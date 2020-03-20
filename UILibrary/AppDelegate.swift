@@ -4,6 +4,46 @@ import AbceedLogic
 import TestHelper
 import UIKit
 
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    var window: UIWindow?
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = window
+        window.rootViewController = defaultStory() // change here
+        window.makeKeyAndVisible()
+
+        return true
+    }
+}
+
+extension AppDelegate {
+
+    private func defaultStory() -> UIViewController {
+        let topnc = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
+        return topnc
+    }
+
+    private func bookDetailStory() -> UIViewController {
+        let topnc = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
+        let decoder = JSONDecoder()
+        let book = try! decoder.decode(Book.self, from: readData("book.json"))
+        let detail = BookDetailBuilder(book: book).build()
+
+        topnc.pushViewController(detail, animated: true)
+        return topnc
+    }
+
+    private func singlePage() -> UIViewController {
+        let vm = SubCategoryListViewModel(topCategory: topCategoryWithSingleSubCategory())
+        let sub = SubCategoryListViewController(viewModel: vm)
+
+        return sub
+    }
+}
+
 private func allData() -> [TopCategory] {
     let data = readData("all_data.json")
     let decoder = JSONDecoder()
@@ -18,35 +58,3 @@ private func topCategoryWithSingleSubCategory() -> TopCategory {
     return c
 }
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    private let viewModel = MockTopCategoryTabViewModel(state: .successful(allData()))
-    private let wireframe = MockBookListWireframe()
-
-    private func makeVC() -> UIViewController {
-        let topnc = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
-        return topnc
-//        let decoder = JSONDecoder()
-//        let book = try! decoder.decode(Book.self, from: readData("book.json"))
-//        let detail = BookDetailBuilder(book: book).build()
-
-//        topnc.pushViewController(detail, animated: true)
-//        let vm = SubCategoryListViewModel(topCategory: topCategoryWithSingleSubCategory())
-//        let sub = SubCategoryListViewController(viewModel: vm)
-//        let nc = UINavigationController(rootViewController: sub)
-//
-//        return nc
-    }
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        self.window = window
-        window.rootViewController = makeVC()
-        window.makeKeyAndVisible()
-
-        return true
-    }
-}
