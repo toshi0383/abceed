@@ -20,11 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let wireframe = MockBookListWireframe()
 
     private func makeVC() -> UIViewController {
-        return TopCategoryTabViewController(viewModel: viewModel,
-                                            wireframe: wireframe)
-//        let viewModel = SubCategoryListViewModel(topCategory: allData()[0])
-//        let vc = SubCategoryListViewController(viewModel: viewModel)
-//        return vc
+        let topnc = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
+        let decoder = JSONDecoder()
+        let book = try! decoder.decode(Book.self, from: readData("book.json"))
+        let detail = BookDetailBuilder(book: book).build()
+
+        topnc.pushViewController(detail, animated: true)
+
+        return topnc
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

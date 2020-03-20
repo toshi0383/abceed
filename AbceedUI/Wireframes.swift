@@ -7,12 +7,12 @@ public protocol BookListWireframe {
 }
 
 public final class BookListWireframeImpl: BookListWireframe {
-    public weak var viewController: UIViewController?
+    public weak var navigationController: UINavigationController?
 
     public init() {}
 
     public func navigateToBookDetail(book: Book) {
         let vc = BookDetailBuilder(book: book).build()
-        viewController?.present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

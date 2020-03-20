@@ -1,7 +1,7 @@
 import AbceedCore
-import RxRelay
 import Realm
 import RealmSwift
+import RxRelay
 
 public protocol MybookRepository {
     func isMybook(_ bookID: String) -> AbceedCore.Property<Bool>
@@ -30,18 +30,38 @@ public class MybookRepositoryImpl: MybookRepository {
     public func registerMybook(_ bookID: String) {
         mybooks.append(bookID)
 
-
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(Mybook(id: bookID))
+        }
     }
 
     public func unregisterMybook(_ bookID: String) {
         if let idx = mybooks.firstIndex(of: bookID) {
             mybooks.remove(at: idx)
         }
+
+        let realm = try! Realm()
+
+        try! realm.write {
+            if let o = realm.object(ofType: Mybook.self, forPrimaryKey: bookID) {
+                realm.delete(o)
+            }
+        }
     }
 }
 
 final class Mybook: Object {
+
     @objc dynamic var id = ""
+
+    init(id: String) {
+        self.id = id
+    }
+
+    required init() {
+        super.init()
+    }
 
     override static func primaryKey() -> String? {
         return "id"

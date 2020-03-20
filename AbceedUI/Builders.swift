@@ -2,14 +2,14 @@ import AbceedCore
 import AbceedLogic
 import UIKit
 
-final class BookDetailBuilder {
+public final class BookDetailBuilder {
     private let book: Book
 
-    init(book: Book) {
+    public init(book: Book) {
         self.book = book
     }
 
-    func build() -> UIViewController {
+    public func build() -> UIViewController {
         let viewModel = BookDetailViewModel(
             book: book,
             mybookRepository: MybookRepositoryImpl()
@@ -22,19 +22,26 @@ final class BookDetailBuilder {
 }
 
 public final class TopCategoryTabBuilder {
-    public init() {}
+    private let bookRepository: BookRepository
 
-    public func build() -> UIViewController {
+    public init(bookRepository: BookRepository = BookRepositoryImpl()) {
+        self.bookRepository = bookRepository
+    }
+
+    public func build() -> UINavigationController {
         let viewModel = TopCategoryTabViewModel(
-            bookRepository: BookRepositoryImpl()
+            bookRepository: bookRepository
         )
 
         let wireframe = BookListWireframeImpl()
 
         let vc = TopCategoryTabViewController(viewModel: viewModel,
-                                         wireframe: wireframe)
-        wireframe.viewController = vc
+                                              wireframe: wireframe)
 
-        return vc
+        let nc = UINavigationController(rootViewController: vc)
+
+        wireframe.navigationController = nc
+
+        return nc
     }
 }

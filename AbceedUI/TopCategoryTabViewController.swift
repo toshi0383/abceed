@@ -56,6 +56,12 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
             .disposed(by: disposeBag)
     }
 
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.isNavigationBarHidden = true
+    }
+
     private func showSuccessfulState() {
         loadingIndicator?.stopAnimating()
         loadingIndicator?.removeFromSuperview()
@@ -70,7 +76,7 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
             let indicator = UIActivityIndicatorView(style: .large)
             indicator.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(indicator)
-            indicator.pinCenter(view)
+            indicator.pinCenter(inParent: view)
             self.loadingIndicator = indicator
         }
 
@@ -89,7 +95,7 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
             label.text = message
             label.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(label)
-            label.pinCenter(view)
+            label.pinCenter(inParent: view)
 
             errorLabel = label
         }

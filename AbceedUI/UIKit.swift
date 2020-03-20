@@ -10,10 +10,10 @@ extension UIView {
         ])
     }
 
-    func pinCenter(_ other: UIView) {
+    func pinCenter(inParent parent: UIView) {
         NSLayoutConstraint.activate([
-            self.centerXAnchor.constraint(equalTo: other.centerXAnchor),
-            self.centerYAnchor.constraint(equalTo: other.centerYAnchor),
+            parent.centerXAnchor.constraint(equalTo: centerXAnchor),
+            parent.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 
@@ -28,4 +28,22 @@ extension UIView {
 
 func / (_ size: CGSize, _ r: CGFloat) -> CGSize {
     return CGSize(width: size.width / r, height: size.height / r)
+}
+
+extension UIStackView {
+    static func horizontal(spacing: CGFloat) -> UIStackView {
+        let v = UIStackView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.axis = .horizontal
+        v.spacing = spacing
+        return v
+    }
+
+    static func vertical(spacing: CGFloat) -> UIStackView {
+        let v = UIStackView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.axis = .vertical
+        v.spacing = spacing
+        return v
+    }
 }
