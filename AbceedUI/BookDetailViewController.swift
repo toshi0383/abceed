@@ -48,7 +48,8 @@ final class BookDetailViewController: UIViewController {
         let descriptionStack = UIStackView.vertical(spacing: 6)
         let buttonStack = UIStackView.horizontal(spacing: 8)
 
-        baseStack.distribution = .fillProportionally
+        baseStack.alignment = .center
+        baseStack.distribution = .fill
         baseStack.addArrangedSubview(thumbnailView)
         baseStack.addArrangedSubview(secondaryStack)
 
@@ -137,13 +138,11 @@ private final class ThumbnailView: UIView {
         imageView.applyShadow()
         addSubview(imageView)
 
+        imageView.pinEdges(self)
+
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            widthAnchor.constraint(greaterThanOrEqualToConstant: BookCell.defaultSize.width / 1.4),
-            widthAnchor.constraint(lessThanOrEqualToConstant: BookCell.defaultSize.width),
-            heightAnchor.constraint(lessThanOrEqualToConstant: BookCell.defaultSize.height / 1.5),
+            imageView.widthAnchor.constraint(equalToConstant: BookCell.defaultSize.width),
+            imageView.heightAnchor.constraint(equalToConstant: BookCell.defaultSize.height + 40),
         ])
 
     }
