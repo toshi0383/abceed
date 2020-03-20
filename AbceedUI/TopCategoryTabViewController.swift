@@ -19,6 +19,9 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
         options.tabView.style = .segmented
         options.tabView.itemView.selectedTextColor = .red
         options.tabView.additionView.backgroundColor = .red
+        options.tabView.additionView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 0.25, right: 0)
+        options.tabView.bottomBorderView.borderColor = .lightGray
+        options.tabView.bottomBorderView.borderWidth = 0.25
         options.isSafeAreaEnabled = true
         return options
     }()

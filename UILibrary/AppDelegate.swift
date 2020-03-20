@@ -27,17 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let wireframe = MockBookListWireframe()
 
     private func makeVC() -> UIViewController {
-//        let topnc = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
+        let topnc = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
+        return topnc
 //        let decoder = JSONDecoder()
 //        let book = try! decoder.decode(Book.self, from: readData("book.json"))
 //        let detail = BookDetailBuilder(book: book).build()
 
 //        topnc.pushViewController(detail, animated: true)
-        let vm = SubCategoryListViewModel(topCategory: topCategoryWithSingleSubCategory())
-        let sub = SubCategoryListViewController(viewModel: vm)
-        let nc = UINavigationController(rootViewController: sub)
-
-        return nc
+//        let vm = SubCategoryListViewModel(topCategory: topCategoryWithSingleSubCategory())
+//        let sub = SubCategoryListViewController(viewModel: vm)
+//        let nc = UINavigationController(rootViewController: sub)
+//
+//        return nc
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
