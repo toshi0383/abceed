@@ -44,32 +44,28 @@ This boosts up the UI development iteration cycle especially when project gets v
 
 - UILibrary: Runs UI with mock data. Could have been a Xcode Playground too.
 
-# References
+## References
 
 - https://dev.classmethod.jp/smartphone/iphone/clean-architecture-and-derivative-systems-for-ios
 - https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
 
-# Xcode Version
+## Xcode Version
 
 - Xcode 11.3.1
 
-# Bootstrap
+## Bootstrap
 
 ```
 carthage bootstrap --platform ios
 xcodegen
 ```
 
-# Unit Test
+## Unit Test
 
 ```
 make test-all
 ```
 
-# Future TODO
-
-- i18n (currently japanese only)
-
-# License
+## License
 
 MIT
