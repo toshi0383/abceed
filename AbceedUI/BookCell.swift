@@ -5,27 +5,29 @@ import UIKit
 
 final class BookCell: UICollectionViewCell {
 
-    static let defaultSize = CGSize(width: 150, height: 242)
+    static let defaultSize = CGSize(width: 80, height: 121)
 
     private lazy var thumbnailView: UIImageView = {
         let v = UIImageView()
-        v.backgroundColor = .lightGray
-        v.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(v)
-        v.pinEdges(self.contentView)
+        v.backgroundColor = .clear
         v.contentMode = .scaleAspectFit
+        v.translatesAutoresizingMaskIntoConstraints = false
+
+        self.contentView.addSubview(v)
+
+        NSLayoutConstraint.activate([
+            v.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            v.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+            v.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            v.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+        ])
         return v
     }()
 
-    /// 取得した画像サイズを基準の高さにリサイズした場合のサイズ、の半分(retina display考慮)
-    /// これをセルのサイズ計算にそのまま使用する。
-    private(set) var resolvedImageSize: CGSize?
-
     private var reuseDisposeBag = DisposeBag()
 
-    func configure(_ imgURL: String, setNeedsLayout: @escaping () -> ()) {
+    func configure(_ imgURL: String) {
         reuseDisposeBag = DisposeBag()
-        resolvedImageSize = nil
 
         applyShadow()
 
@@ -33,29 +35,8 @@ final class BookCell: UICollectionViewCell {
 
         ImagePipeline.shared.rx.loadImage(with: url)
             .subscribe(onSuccess: { [weak self] result in
-                self?.setImage(result.image)
-                setNeedsLayout()
+                self?.thumbnailView.image = result.image
             })
             .disposed(by: reuseDisposeBag)
-    }
-
-    private func setImage(_ image: UIImage) {
-
-        let origSize = image.size
-
-        if origSize.height == BookCell.defaultSize.height {
-            resolvedImageSize = origSize / 2
-            thumbnailView.image = image
-            return
-        }
-
-        let newSize = CGSize(
-            width: origSize.width * BookCell.defaultSize.height / origSize.height,
-            height: BookCell.defaultSize.height
-        )
-
-        resolvedImageSize = newSize / 2
-
-        thumbnailView.image = image
     }
 }

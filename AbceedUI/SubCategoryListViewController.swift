@@ -62,7 +62,7 @@ public final class SubCategoryListViewController: UITableViewController {
     }
 
     public override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return BookCell.defaultSize.height / 2 + BookListCollectionCell.verticalMargin
+        return BookCell.defaultSize.height + BookListCollectionCell.verticalMargin
     }
 
     public override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

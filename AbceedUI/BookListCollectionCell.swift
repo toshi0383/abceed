@@ -36,6 +36,7 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
             collectionView.backgroundColor = .clear
         }
 
+        collectionView!.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: false)
         collectionView!.reloadData()
     }
 
@@ -72,29 +73,17 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! BookCell
-        cell.configure(viewModel!.books.value[indexPath.row].imgURL, setNeedsLayout: collectionView.collectionViewLayout.invalidateLayout)
+        cell.configure(viewModel!.books.value[indexPath.row].imgURL)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        var size = BookCell.defaultSize / 2
-
-        if collectionView.indexPathsForVisibleItems.contains(where: { $0.item == indexPath.item }) {
-
-            if let cell = collectionView.cellForItem(at: indexPath) as? BookCell,
-                let resolvedSize = cell.resolvedImageSize {
-
-                size = resolvedSize
-            }
-            return size
-        }
-
-        return size
+        return BookCell.defaultSize
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 16
+        return 8
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
