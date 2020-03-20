@@ -68,6 +68,7 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
+        // Workaround: tabView disappears on rotation.
         swipeMenuView.tabView?.reloadData()
     }
 
