@@ -5,7 +5,7 @@ abceed
 
 This is a proof of concept project which demonstrates:
 
-### 1. basic architecture pattern of MVVM with Clean Architecture extension.
+### 1. A basic implementation pattern of MVVM with Clean Architecture extension.
 
 It has:
 
