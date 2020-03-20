@@ -34,11 +34,19 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
             contentView.addSubview(collectionView)
             collectionView.pinEdges(self)
             collectionView.backgroundColor = .clear
-            let bottomMargin = BookListCollectionCell.bottomMargin
-            collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: bottomMargin, right: 16)
         }
 
         collectionView!.reloadData()
+    }
+
+    override func updateConstraints() {
+        super.updateConstraints()
+
+        // NOTE:
+        //   safe area aware contentInset
+        //   collectionView is pinned to cell, not contentView, otherwise cell's reuse behavior would be visible to user.
+        let bottomMargin = BookListCollectionCell.bottomMargin
+        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: bottomMargin, right: 16) + safeAreaInsets
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {

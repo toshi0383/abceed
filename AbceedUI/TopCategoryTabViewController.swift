@@ -67,7 +67,6 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
         loadingIndicator?.removeFromSuperview()
         loadingIndicator = nil
 
-        view.bringSubviewToFront(swipeMenuView)
         swipeMenuView.reloadData(options: options)
     }
 
