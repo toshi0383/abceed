@@ -1,5 +1,5 @@
 github "ReactiveX/RxSwift"
-github "yysskk/SwipeMenuViewController"
+github "toshi0383/SwipeMenuViewController" "ts-viewwilltransition"
 github "kean/Nuke"
 github "kean/RxNuke"
 github "realm/realm-cocoa"
