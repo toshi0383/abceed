@@ -41,6 +41,7 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
         }
 
         collectionView!.reloadData()
+        collectionView!.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: false)
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
