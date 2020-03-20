@@ -7,7 +7,7 @@ protocol BookListDelegate: AnyObject {
     func bookList(_ collectionView: UICollectionView, didSelectBook book: Book)
 }
 
-final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
 
     static let verticalMargin: CGFloat = bottomMargin
     static let bottomMargin: CGFloat = 8 // for drop shadow
@@ -25,6 +25,8 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
         if collectionView == nil {
             let layout = UICollectionViewFlowLayout() //FlexibleWidthByImageSizeLayout()
             layout.scrollDirection = .horizontal
+            layout.minimumInteritemSpacing = 8
+            layout.itemSize = BookCell.defaultSize
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
             collectionView.register(BookCell.self, forCellWithReuseIdentifier: cellID)
             collectionView.dataSource = self
@@ -32,35 +34,13 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
             self.collectionView = collectionView
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(collectionView)
-            collectionView.pinEdges(self)
+            collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: BookListCollectionCell.bottomMargin, right: 16)
+            collectionView.pinEdges(self.safeAreaLayoutGuide)
+            collectionView.contentInsetAdjustmentBehavior = .never
             collectionView.backgroundColor = .clear
         }
 
-        collectionView!.scrollToItem(at: IndexPath(item: 0, section: 0), at: .left, animated: false)
         collectionView!.reloadData()
-    }
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        setContentInset()
-    }
-
-    override func updateConstraints() {
-        super.updateConstraints()
-
-        setContentInset()
-
-        // scroll offset isn't automatically fixed on traitCollection change
-        collectionView?.collectionViewLayout.invalidateLayout()
-    }
-
-    private func setContentInset() {
-        // NOTE:
-        //   safe area aware contentInset
-        //   collectionView is pinned to cell, not contentView, otherwise cell's reuse behavior would be visible to user.
-        let bottomMargin = BookListCollectionCell.bottomMargin
-        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: bottomMargin, right: 16) + safeAreaInsets
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -75,15 +55,6 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! BookCell
         cell.configure(viewModel!.books.value[indexPath.row].imgURL)
         return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return BookCell.defaultSize
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

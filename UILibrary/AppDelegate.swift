@@ -11,6 +11,13 @@ private func allData() -> [TopCategory] {
     return res.topCategories
 }
 
+private func topCategoryWithSingleSubCategory() -> TopCategory {
+    let data = readData("single_subcategory.json")
+    let decoder = JSONDecoder()
+    let c = try! decoder.decode(TopCategory.self, from: data)
+    return c
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,14 +27,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let wireframe = MockBookListWireframe()
 
     private func makeVC() -> UIViewController {
-        let topnc = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
-        let decoder = JSONDecoder()
-        let book = try! decoder.decode(Book.self, from: readData("book.json"))
-        let detail = BookDetailBuilder(book: book).build()
+//        let topnc = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
+//        let decoder = JSONDecoder()
+//        let book = try! decoder.decode(Book.self, from: readData("book.json"))
+//        let detail = BookDetailBuilder(book: book).build()
 
-        topnc.pushViewController(detail, animated: true)
+//        topnc.pushViewController(detail, animated: true)
+        let vm = SubCategoryListViewModel(topCategory: topCategoryWithSingleSubCategory())
+        let sub = SubCategoryListViewController(viewModel: vm)
+        let nc = UINavigationController(rootViewController: sub)
 
-        return topnc
+        return nc
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
