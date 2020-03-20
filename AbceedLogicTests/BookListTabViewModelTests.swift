@@ -21,19 +21,6 @@ final class TopCategoryTabViewModelTests: XCTestCase {
     }
 }
 
-final class MockBookRepository: BookRepository {
-
-    private let mockResponse: Observable<MockBookAllResponse>
-
-    init(_ mockResponse: Observable<MockBookAllResponse>) {
-        self.mockResponse = mockResponse
-    }
-
-    func getAll() -> Observable<MockBookAllResponse> {
-        return mockResponse
-    }
-}
-
 private enum MockResponse {
     static var error: Observable<MockBookAllResponse> {
         let e = NSError(domain: "jp.toshi0383.abceed", code: -1, userInfo: nil)
