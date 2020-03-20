@@ -1,4 +1,5 @@
 import AbceedCore
+import Foundation
 import RxSwift
 
 public protocol BookRepository {

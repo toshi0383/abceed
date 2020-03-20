@@ -30,7 +30,9 @@ final class BookDetailViewController: UIViewController {
         view.backgroundColor = .white
 
         navigationController?.isNavigationBarHidden = false
-        let arrow = UIBarButtonItem(image: UIImage(named: "left-arrow", in: Bundle(for: BookDetailViewController.self), compatibleWith: nil)!, style: .plain, target: self, action: #selector(pop))
+
+        let path = Bundle.main.path(forResource: "AbceedUIBundle", ofType: "bundle")!
+        let arrow = UIBarButtonItem(image: UIImage(named: "left-arrow", in: Bundle(path: path), compatibleWith: nil)!, style: .plain, target: self, action: #selector(pop))
         arrow.tintColor = .gray
 
         let item = UIBarButtonItem()
@@ -95,8 +97,7 @@ final class BookDetailViewController: UIViewController {
             descriptionStack.addArrangedSubview(publisher)
         }
 
-        let url = URL(string: book.imgURL)!
-        Nuke.loadImage(with: url, into: thumbnailView.imageView)
+        Nuke.loadImage(with: URL(string: book.imgURL)!, into: thumbnailView.imageView)
 
         viewModel.isMybook.asObservable()
             .bind(to: mybookButton.isMybook)
@@ -118,6 +119,8 @@ final class BookDetailViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 }
+
+// MARK: - UI Components
 
 private final class ThumbnailView: UIView {
 
@@ -150,7 +153,7 @@ private final class ThumbnailView: UIView {
     }
 }
 
-class Button: UIView {
+private class Button: UIView {
     let label = UILabel()
 
     override init(frame: CGRect) {
@@ -195,7 +198,7 @@ class Button: UIView {
     }
 }
 
-final class MybookButton: Button {
+private final class MybookButton: Button {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
 
@@ -212,7 +215,7 @@ final class MybookButton: Button {
     }
 }
 
-final class BuyButton: Button {
+private final class BuyButton: Button {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
 

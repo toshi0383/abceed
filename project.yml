@@ -15,6 +15,7 @@ targets:
       - carthage: RxCocoa
       - target: AbceedCore
       - target: AbceedUI
+      - target: AbceedUIBundle
   UILibrary:
     platform: iOS
     type: application
@@ -27,10 +28,13 @@ targets:
       - carthage: SwipeMenuViewController
       - target: AbceedCore
       - target: AbceedUI
+      - target: AbceedUIBundle
       - target: TestHelper
   AbceedCore:
     platform: iOS
     type: framework
+    settings:
+      MACH_O_TYPE: staticlib
     sources:
       - AbceedCore/
     dependencies:
@@ -54,6 +58,8 @@ targets:
   AbceedLogic:
     platform: iOS
     type: framework
+    settings:
+      MACH_O_TYPE: staticlib
     sources:
       - AbceedLogic/
     dependencies:
@@ -79,6 +85,8 @@ targets:
   AbceedUI:
     platform: iOS
     type: framework
+    settings:
+      MACH_O_TYPE: staticlib
     sources:
       - AbceedUI/
     dependencies:
@@ -95,3 +103,8 @@ targets:
     type: framework
     sources:
       - TestHelper/
+  AbceedUIBundle:
+    platform: iOS
+    type: bundle
+    sources:
+      - AbceedUIBundle/
