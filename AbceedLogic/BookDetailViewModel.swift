@@ -3,6 +3,7 @@ import AbceedCore
 public protocol BookDetailViewModelType {
     var book: Book { get }
     var isMybook: Property<Bool> { get }
+    func tapMybookButton()
 }
 
 public final class BookDetailViewModel: BookDetailViewModelType {
@@ -14,5 +15,13 @@ public final class BookDetailViewModel: BookDetailViewModelType {
         self.book = book
         self.mybookRepository = mybookRepository
         isMybook = mybookRepository.isMybook(book.id)
+    }
+
+    public func tapMybookButton() {
+        if isMybook.value {
+            mybookRepository.unregisterMybook(book.id)
+        } else {
+            mybookRepository.registerMybook(book.id)
+        }
     }
 }

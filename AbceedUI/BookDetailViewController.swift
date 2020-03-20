@@ -95,13 +95,17 @@ final class BookDetailViewController: UIViewController {
             descriptionStack.addArrangedSubview(publisher)
         }
 
-        print("\(book)")
-
         let url = URL(string: book.imgURL)!
         Nuke.loadImage(with: url, into: thumbnailView.imageView)
 
         viewModel.isMybook.asObservable()
             .bind(to: mybookButton.isMybook)
+            .disposed(by: disposeBag)
+
+        mybookButton.rx.tapGesture
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.tapMybookButton()
+            })
             .disposed(by: disposeBag)
     }
 }

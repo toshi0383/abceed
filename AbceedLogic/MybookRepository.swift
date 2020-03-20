@@ -9,8 +9,14 @@ public protocol MybookRepository {
     func unregisterMybook(_ bookID: String)
 }
 
+private func restoreMybooks() -> [String] {
+    let realm = try! Realm()
+    return realm.objects(Mybook.self).map { $0.id }
+}
+
 public class MybookRepositoryImpl: MybookRepository {
-    private var mybooks: [String] = [] {
+
+    private var mybooks: [String] = restoreMybooks() {
         didSet {
             mybooksRelay.accept(mybooks)
         }
