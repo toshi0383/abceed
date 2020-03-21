@@ -1,5 +1,4 @@
 import AbceedCore
-import AbceedLogic
 
 final class MockTopCategoryTabViewModel: TopCategoryTabViewModelType {
     let state: Property<TopCategoryTabState>

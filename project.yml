@@ -13,7 +13,6 @@ targets:
       - carthage: RxSwift
       - carthage: RxRelay
       - carthage: RxCocoa
-      - target: AbceedCore
       - target: AbceedUI
       - target: AbceedUIBundle
   UILibrary:

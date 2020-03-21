@@ -2,13 +2,6 @@ import AbceedCore
 import RxRelay
 import RxSwift
 
-public protocol BookDetailViewModelType {
-    var book: Book { get }
-    var isMybook: Property<Bool> { get }
-    var showMessage: Observable<String> { get }
-    func tapMybookButton()
-}
-
 public final class BookDetailViewModel: BookDetailViewModelType {
     public let book: Book
     public let isMybook: Property<Bool>

@@ -1,11 +1,9 @@
-import AbceedCore
-
 public enum TopCategoryTabState: Equatable {
     case successful([TopCategory])
     case error(String)
     case loading
 
-    init(response: MockBookAllResponse?) {
+    public init(response: MockBookAllResponse?) {
         guard let res = response else {
             self = .error("データを取得できませんでした。")
             return

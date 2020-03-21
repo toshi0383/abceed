@@ -3,12 +3,6 @@ import Realm
 import RealmSwift
 import RxRelay
 
-public protocol MybookRepository {
-    func isMybook(_ bookID: String) -> AbceedCore.Property<Bool>
-    func registerMybook(_ bookID: String)
-    func unregisterMybook(_ bookID: String)
-}
-
 /// 簡略化のためDataStoreの役割も兼ねる。大きくなってきたらDataStoreにリファクタ想定。
 public class MybookRepositoryImpl: MybookRepository {
 

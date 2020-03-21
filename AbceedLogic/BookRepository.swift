@@ -2,10 +2,6 @@ import AbceedCore
 import Foundation
 import RxSwift
 
-public protocol BookRepository {
-    func getAll() -> Observable<MockBookAllResponse>
-}
-
 public final class BookRepositoryImpl: BookRepository {
 
     public init() {}

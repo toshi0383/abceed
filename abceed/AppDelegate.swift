@@ -1,6 +1,4 @@
 import AbceedUI
-import AbceedCore
-import AbceedLogic
 import UIKit
 
 @UIApplicationMain
