@@ -38,8 +38,8 @@ Frameworks are linked statically, so there's no runtime overhead compared to mon
 
 ### 3. Mock data driven UI development
 
-All UI components are separated from main target, which means I can create app target **without actual network or database I/O**.  
-This allows to build interested View or ViewController independently.    
+All UI components are separated from main target, which means I can run app target **without actual network or database I/O**.  
+This allows to show interested View or ViewController independently.    
 This boosts up the UI development iteration cycle especially when project gets very large.
 
 - UILibrary: Runs UI with mock data. Could have been a Xcode Playground too.
