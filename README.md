@@ -36,6 +36,11 @@ It's still proof of concept, but feels okay to me.
 
 Frameworks are linked statically, so there's no runtime overhead compared to monolithic app target.
 
+Other notes on code separation are:
+
+- ViewModel's interface is in `Core`, ViewModel's impl is in `Logic`.
+  This way `UILibrary` target doesn't require `Logic` target.
+
 ### 3. Mock data driven UI development
 
 All UI components are separated from main target, which means I can run app target **without actual network or database I/O**.  
