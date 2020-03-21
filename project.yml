@@ -10,9 +10,6 @@ targets:
     sources:
       - Abceed
     dependencies:
-      - carthage: RxSwift
-      - carthage: RxRelay
-      - carthage: RxCocoa
       - target: AbceedUI
       - target: AbceedUIBundle
   UILibrary:
@@ -21,11 +18,6 @@ targets:
     sources:
       - UILibrary
     dependencies:
-      - carthage: RxSwift
-      - carthage: RxRelay
-      - carthage: RxCocoa
-      - carthage: SwipeMenuViewController
-      - target: AbceedCore
       - target: AbceedUI
       - target: AbceedUIBundle
       - target: TestHelper
@@ -48,8 +40,6 @@ targets:
     dependencies:
       - target: AbceedCore
       - target: TestHelper
-      - carthage: RxSwift
-      - carthage: RxCocoa
     scheme:
       testTargets:
         - AbceedCoreTests
@@ -63,8 +53,6 @@ targets:
       - AbceedLogic/
     dependencies:
       - target: AbceedCore
-      - carthage: RxSwift
-      - carthage: RxCocoa
       - carthage: Realm
       - carthage: RealmSwift
   AbceedLogicTests:
@@ -75,8 +63,6 @@ targets:
     dependencies:
       - target: AbceedLogic
       - target: TestHelper
-      - carthage: RxSwift
-      - carthage: RxCocoa
     scheme:
       testTargets:
         - AbceedLogicTests
@@ -89,13 +75,9 @@ targets:
     sources:
       - AbceedUI/
     dependencies:
-      - carthage: RxSwift
-      - carthage: RxRelay
-      - carthage: RxCocoa
       - carthage: Nuke
       - carthage: RxNuke
       - carthage: SwipeMenuViewController
-      - target: AbceedCore
       - target: AbceedLogic
   TestHelper:
     platform: iOS
