@@ -39,6 +39,7 @@ public final class TopCategoryTabBuilder {
                                               wireframe: wireframe)
 
         let nc = UINavigationController(rootViewController: vc)
+        nc.navigationBar.barTintColor = .white
 
         wireframe.navigationController = nc
 

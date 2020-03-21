@@ -22,6 +22,7 @@ public final class SubCategoryListViewController: UITableViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.backgroundColor = .clear
         tableView.separatorColor = .clear
         tableView.register(BookListCollectionCell.self, forCellReuseIdentifier: cellID)
         tableView.register(SubCategoryHeaderView.self, forHeaderFooterViewReuseIdentifier: headerID)

@@ -19,6 +19,7 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
     private var viewModel: BookListViewModelType?
 
     func configure(_ viewModel: BookListViewModelType, delegate: BookListDelegate?) {
+        self.backgroundColor = .clear
         self.viewModel = viewModel
         self.delegate = delegate
 
