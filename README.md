@@ -15,9 +15,9 @@ It has:
 
 It doesn't have:
 
-- UseCase
-- Presenter
-- DataStore
+- UseCase   (merged into ViewModel)
+- Presenter (merged into ViewController)
+- DataStore (merged into Repository)
 
 Clean Architecture is basically extension of MVVM, so I only chose couple of components to fit my needs for current (and potentially future) state of this project.
 
