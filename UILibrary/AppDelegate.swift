@@ -1,5 +1,4 @@
 import AbceedCore
-import AbceedLogic
 import AbceedUI
 import TestHelper
 import UIKit
@@ -37,9 +36,7 @@ extension AppDelegate {
     }
 
     private func singlePage() -> UIViewController {
-        let vm = SubCategoryListViewModel(topCategory: topCategoryWithSingleSubCategory())
-        let sub = SubCategoryListViewController(viewModel: vm)
-
+        let sub = SubCategoryListBuilder(topCategory: topCategoryWithSingleSubCategory()).build()
         return sub
     }
 }

@@ -46,3 +46,17 @@ public final class TopCategoryTabBuilder {
         return nc
     }
 }
+
+public final class SubCategoryListBuilder {
+
+    private let topCategory: TopCategory
+
+    public init(topCategory: TopCategory) {
+        self.topCategory = topCategory
+    }
+
+    public func build() -> UIViewController {
+        let viewModel = SubCategoryListViewModel(topCategory: topCategory)
+        return SubCategoryListViewController(viewModel: viewModel)
+    }
+}
