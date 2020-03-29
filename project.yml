@@ -14,6 +14,21 @@ targets:
         link: false
         embed: false
       - target: AbceedUIBundle
+  AbceedSwiftUI:
+    platform: iOS
+    type: application
+    sources:
+      - AbceedSwiftUI
+    dependencies:
+      - target: AbceedLogic
+        link: false
+        embed: false
+      - target: AbceedCore
+        link: false
+        embed: false
+      - target: AbceedUIBundle
+      - carthage: SDWebImage
+      - carthage: SDWebImageSwiftUI
   UILibrary:
     platform: iOS
     type: application

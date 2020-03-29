@@ -20,10 +20,16 @@ public struct MockBookAllResponse: Decodable, Equatable {
     }
 }
 
-public struct TopCategory: Decodable, Equatable {
+public struct TopCategory: Decodable, Hashable, Identifiable {
     public let id: String
     public let name: String
     public let subCategories: [Category]
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(subCategories)
+    }
 
     enum CodingKeys: String, CodingKey {
         case id = "id_top_category"
@@ -40,10 +46,16 @@ public struct TopCategory: Decodable, Equatable {
     }
 }
 
-public struct Category: Decodable, Equatable {
+public struct Category: Decodable, Hashable, Identifiable {
     public let id: String
     public let name: String
     public let books: [Book]
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(books)
+    }
 
     enum CodingKeys: String, CodingKey {
         case id = "id_category"
@@ -60,12 +72,20 @@ public struct Category: Decodable, Equatable {
     }
 }
 
-public struct Book: Decodable, Equatable {
+public struct Book: Decodable, Hashable, Identifiable {
     public let id: String
     public let name: String
     public let publisher: String
     public let author: String
     public let imgURL: String
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(publisher)
+        hasher.combine(author)
+        hasher.combine(imgURL)
+    }
 
     enum CodingKeys: String, CodingKey {
         case id = "id_book"
