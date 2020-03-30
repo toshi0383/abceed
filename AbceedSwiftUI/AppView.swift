@@ -12,8 +12,7 @@ struct AppView: View {
             PagerView {
                 ForEach(self.store.state.topCategories) { topCategory in
                     TopCategoryView(topCategory: topCategory)
-                        .frame(width:  proxy.size.width, height: proxy.size.height)
-                        .edgesIgnoringSafeArea([.leading, .trailing])
+                        .frame(width:  proxy.size.width + proxy.safeAreaInsets.horizontal, height: proxy.size.height)
                         .environmentObject(self.store.dragState)
                 }
             }
@@ -47,10 +46,10 @@ struct PagerView<Content: View>: View {
             HStack(spacing: 0) {
                 self.content.frame(width: geometry.size.width, height: geometry.size.height)
             }
-            .frame(width: geometry.size.width, alignment: .leading)
-            .offset(x: -CGFloat(self.dragState.currentIndex) * geometry.size.width + geometry.safeAreaInsets.leading)
-            .offset(x: self.dragState.translation - geometry.safeAreaInsets.leading)
-            .animation(.interactiveSpring())
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .offset(x: -CGFloat(self.dragState.currentIndex) * geometry.size.width)
+            .animation(.interactiveSpring(response: 0.3))
+            .offset(x: self.dragState.translation)
         }
     }
 }
@@ -62,15 +61,17 @@ struct TopCategoryView: View {
 
     var body: some View {
         GeometryReader { proxy in
+
+            // List { // Cannot use `List`. BookListView is clipped by SafeArea.
+
             ScrollView(.vertical, showsIndicators: false) {
                 VStack {
                     ForEach(self.topCategory.subCategories) { subCategory in
                         BookListView(category: subCategory)
-                            .frame(width: proxy.size.width, height: 250)
+                            .frame(width: proxy.size.width, height: 180)
                             .environmentObject(self.dragState)
                     }
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
     }
@@ -87,7 +88,7 @@ struct BookListView: View {
         GeometryReader { proxy in
             VStack {
                 Text(self.category.name)
-                    .offset(x: 8, y: 0)
+                    .offset(x: /*proxy.safeAreaInsets.leading + */8, y: 0)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.white)
                     .gesture(
@@ -96,7 +97,8 @@ struct BookListView: View {
                                 self.dragState.translation = value.translation.width
                             }
                             .onEnded { value in
-                                let offset = value.translation.width / (proxy.size.width / 2)
+                                let a = abs(value.translation.width)
+                                let offset: CGFloat = a > 30 ? value.translation.width / a : 0
                                 let newIndex = (CGFloat(self.dragState.currentIndex) - offset).rounded()
                                 self.dragState.translation = 0
                                 self.dragState.currentIndex = min(max(Int(newIndex), 0), self.dragState.pageCount - 1)
@@ -104,13 +106,11 @@ struct BookListView: View {
                     )
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
-                        ForEach((self.category.books.startIndex..<self.category.books.endIndex)) { (book: Int) in
-                            if book == 0 { Spacer(minLength: 8) }
-                            WebImage(url: URL(string: self.category.books[book].imgURL)!)
+                        ForEach(self.category.books) { book in
+                            WebImage(url: URL(string: book.imgURL)!)
                                 .resizable()
                                 .indicator(.activity)
                                 .aspectRatio(contentMode: ContentMode.fit)
-                            if book + 1 == self.category.books.count { Spacer(minLength: 8) }
                         }
                     }
                 }
