@@ -19,6 +19,8 @@ targets:
     type: application
     sources:
       - AbceedSwiftUI
+    settings:
+      SUPPORTS_MACCATALYST: YES
     dependencies:
       - target: AbceedLogic
         link: false
