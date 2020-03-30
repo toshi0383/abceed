@@ -7,36 +7,38 @@ import SwiftUI
 struct AppView: View {
     @ObservedObject var store: AppStore
 
-    @State var currentPage = 0
-
     var body: some View {
         GeometryReader { proxy in
-            PagerView(pageCount: self.store.state.topCategories.count, currentIndex: self.$currentPage) {
+            PagerView {
                 ForEach(self.store.state.topCategories) { topCategory in
                     TopCategoryView(topCategory: topCategory)
                         .frame(width:  proxy.size.width, height: proxy.size.height)
                         .edgesIgnoringSafeArea([.leading, .trailing])
+                        .environmentObject(self.store.dragState)
                 }
             }
             .edgesIgnoringSafeArea([.leading, .trailing])
+            .environmentObject(self.store.dragState)
         }
     }
 
     init(store: AppStore) {
         self.store = store
     }
+}
 
+final class DragState: ObservableObject {
+    @Published var translation: CGFloat = 0
+    @Published var currentIndex: Int = 0
+    @Published var pageCount: Int = 0
 }
 
 struct PagerView<Content: View>: View {
-    let pageCount: Int
-    @Binding var currentIndex: Int
-    @GestureState var translation: CGFloat = 0
     let content: Content
 
-    init(pageCount: Int, currentIndex: Binding<Int>, @ViewBuilder content: () -> Content) {
-        self.pageCount = pageCount
-        self._currentIndex = currentIndex
+    @EnvironmentObject var dragState: DragState
+
+    init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
 
@@ -46,26 +48,17 @@ struct PagerView<Content: View>: View {
                 self.content.frame(width: geometry.size.width, height: geometry.size.height)
             }
             .frame(width: geometry.size.width, alignment: .leading)
-            .offset(x: -CGFloat(self.currentIndex) * geometry.size.width + geometry.safeAreaInsets.leading)
-            .offset(x: self.translation - geometry.safeAreaInsets.leading)
+            .offset(x: -CGFloat(self.dragState.currentIndex) * geometry.size.width + geometry.safeAreaInsets.leading)
+            .offset(x: self.dragState.translation - geometry.safeAreaInsets.leading)
             .animation(.interactiveSpring())
-            .gesture(
-                DragGesture(minimumDistance: 20, coordinateSpace: .local)
-                    .updating(self.$translation) { value, state, _ in
-                        state = value.translation.width
-                }
-                .onEnded { value in
-                    let offset = value.translation.width / geometry.size.width
-                    let newIndex = (CGFloat(self.currentIndex) - offset).rounded()
-                    self.currentIndex = min(max(Int(newIndex), 0), self.pageCount - 1)
-                }
-            )
         }
     }
 }
 
 struct TopCategoryView: View {
     let topCategory: TopCategory
+
+    @EnvironmentObject var dragState: DragState
 
     var body: some View {
         GeometryReader { proxy in
@@ -74,6 +67,7 @@ struct TopCategoryView: View {
                     ForEach(self.topCategory.subCategories) { subCategory in
                         BookListView(category: subCategory)
                             .frame(width: proxy.size.width, height: 250)
+                            .environmentObject(self.dragState)
                     }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -84,12 +78,30 @@ struct TopCategoryView: View {
 }
 
 struct BookListView: View {
+
+    @EnvironmentObject var dragState: DragState
+
     let category: AbceedCore.Category
 
     var body: some View {
         GeometryReader { proxy in
             VStack {
                 Text(self.category.name)
+                    .offset(x: 8, y: 0)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.white)
+                    .gesture(
+                        DragGesture()
+                            .onChanged { value in
+                                self.dragState.translation = value.translation.width
+                            }
+                            .onEnded { value in
+                                let offset = value.translation.width / (proxy.size.width / 2)
+                                let newIndex = (CGFloat(self.dragState.currentIndex) - offset).rounded()
+                                self.dragState.translation = 0
+                                self.dragState.currentIndex = min(max(Int(newIndex), 0), self.dragState.pageCount - 1)
+                            }
+                    )
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach((self.category.books.startIndex..<self.category.books.endIndex)) { (book: Int) in
@@ -116,6 +128,8 @@ final class AppStore: ObservableObject {
         }
     }
 
+    let dragState = DragState()
+
     private let disposeBag = DisposeBag()
 
     init(bookRepository: BookRepository = BookRepositoryImpl()) {
@@ -126,6 +140,7 @@ final class AppStore: ObservableObject {
             .observeOn(ConcurrentMainScheduler.instance)
             .subscribe(onNext: { [weak self] state in
                 self?.state = state
+                self?.dragState.pageCount = state.topCategories.count
             })
             .disposed(by: disposeBag)
     }
