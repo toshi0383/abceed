@@ -27,8 +27,20 @@ targets:
         link: false
         embed: false
       - target: AbceedUIBundle
-      - carthage: SDWebImage
-      - carthage: SDWebImageSwiftUI
+      - package: SDWebImageSwiftUI
+        product: SDWebImage
+      - package: SDWebImageSwiftUI
+        product: SDWebImageSwiftUI
+      - package: RxSwift
+        product: RxSwift
+      - package: RxSwift
+        product: RxCocoa
+      - package: RxSwift
+        product: RxRelay
+      - package: Realm
+        product: Realm
+      - package: Realm
+        product: RealmSwift
   UILibrary:
     platform: iOS
     type: application
@@ -48,9 +60,12 @@ targets:
     sources:
       - AbceedCore/
     dependencies:
-      - carthage: RxSwift
-      - carthage: RxRelay
-      - carthage: RxCocoa
+      - package: RxSwift
+        product: RxSwift
+      - package: RxSwift
+        product: RxCocoa
+      - package: RxSwift
+        product: RxRelay
   AbceedCoreTests:
     platform: iOS
     type: bundle.unit-test
@@ -76,8 +91,16 @@ targets:
       - target: AbceedCore
         link: false
         embed: false
-      - carthage: Realm
-      - carthage: RealmSwift
+      - package: RxSwift
+        product: RxSwift
+      - package: RxSwift
+        product: RxCocoa
+      - package: RxSwift
+        product: RxRelay
+      - package: Realm
+        product: Realm
+      - package: Realm
+        product: RealmSwift
   AbceedLogicTests:
     platform: iOS
     type: bundle.unit-test
@@ -100,8 +123,8 @@ targets:
     sources:
       - AbceedUI/
     dependencies:
-      - carthage: Nuke
-      - carthage: RxNuke
+      - package: Nuke
+      - package: RxNuke
       - carthage: SwipeMenuViewController
       - target: AbceedLogic
         link: false
@@ -116,3 +139,19 @@ targets:
     type: bundle
     sources:
       - AbceedUIBundle/
+packages:
+  Nuke:
+    url: https://github.com/kean/Nuke
+    majorVersion: 8.4.1
+  RxNuke:
+    url: https://github.com/kean/RxNuke
+    majorVersion: 0.11.0
+  Realm:
+    url: https://github.com/realm/realm-cocoa
+    majorVersion: 4.4.0
+  RxSwift:
+    url: https://github.com/ReactiveX/RxSwift
+    majorVersion: 5.1.0
+  SDWebImageSwiftUI:
+    url: https://github.com/SDWebImage/SDWebImageSwiftUI
+    majorVersion: 1.1.0
