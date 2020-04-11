@@ -1,5 +1,5 @@
-github "ReactiveX/RxSwift" "5.1.0"
+github "ReactiveX/RxSwift" "5.1.1"
 github "kean/Nuke" "8.4.0"
 github "kean/RxNuke" "0.11.0"
-github "realm/realm-cocoa" "v4.3.2"
+github "realm/realm-cocoa" "v4.4.0"
 github "toshi0383/SwipeMenuViewController" "5483b988273e889ae4e04c9cf238d6524694ea0e"
