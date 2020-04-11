@@ -11,6 +11,7 @@
 		065819925F9648E6EC08DDBB /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0EFC4BC4836417BD966E7572 /* MybookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A80C4AD7D5E114BDABEF5D6 /* MybookRepository.swift */; };
 		101807A974595E129ED47038 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		127F1B18E4C2C671663B568D /* AbceedLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5877C1F15DC4B427ED32C958 /* AbceedLogic.framework */; };
 		13F757F8E854BB43216F0B7A /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; };
 		14179FEFE6B396844DA837A9 /* AbceedUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 660DA6681B4271507405C461 /* AbceedUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		142B93A15CD225A07C953D0C /* RxNuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659F1FC08E4006D2C41DABF8 /* RxNuke.framework */; };
@@ -28,6 +29,7 @@
 		36487452E7C76AB12B3FEF6D /* TestHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA33CF457B8B8ACD4E6B97 /* TestHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3827F05A7ED2709E3390158B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B288FD3BF56C032384830294 /* Protocols.swift */; };
 		3B216105C9700BE75B1305EE /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76B54D35821D81D53057DB0 /* RxSwift.framework */; };
+		3BF0B1109B8C199683DB3AE2 /* AbceedCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A7F08588916079E8801D80 /* AbceedCore.framework */; };
 		3CA3C2177C0E2973356B1977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB826C57D0A84C1CAF65DC14 /* Assets.xcassets */; };
 		3DA252C87C9B8B3A4C12FCFF /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4D1A8376A5418BFFC622C2FE /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,6 +42,7 @@
 		6691686633A2E925BCA1FA2D /* AbceedUIBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37F3BA4BCB36907039ADCEA8 /* AbceedUIBundle.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6C69F6386D105681733AEAD3 /* TestHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA33CF457B8B8ACD4E6B97 /* TestHelper.framework */; };
 		6FA0703CC771F03265820ED0 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D55B8A29FF22D4547CC8B /* TestHelper.swift */; };
+		766ADAAC73442FB5DE28F587 /* AbceedUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92E6A59C59F7281756A8D81 /* AbceedUI.framework */; };
 		78710F1498EDAB0E7C6274C7 /* AbceedLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = E65CA2D4DE3D19707228E4F0 /* AbceedLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7909492DE0C102873CC9E835 /* SubCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD9274AAE0933AE4A857782 /* SubCategoryHeaderView.swift */; };
 		7B01FF19CB334ED5CCFFAA79 /* BookListTabViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C07DA32C8BA53FACE8BB6 /* BookListTabViewModelTests.swift */; };
@@ -51,6 +54,7 @@
 		ACDC0AA2FA7622B4CFC44354 /* Builders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44CDEFC7CEECD9F0314C01 /* Builders.swift */; };
 		AEBBE91F6C5297D9399B8D34 /* SubCategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5172B46549112E1046CA6 /* SubCategoryListViewController.swift */; };
 		B7907BF82C23293542C61C11 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A88B235009CC6395F851A6EF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BD85F00D9B2E12A53744B165 /* AbceedUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92E6A59C59F7281756A8D81 /* AbceedUI.framework */; };
 		BEB763F7C020B6DEB53F869C /* Wireframes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333244F39555C9AB633029 /* Wireframes.swift */; };
 		C44A994BABAD81FB6D951ACB /* TopCategoryTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13530753D74793C3B64B29 /* TopCategoryTabViewModel.swift */; };
 		C62971837258E284855F3B1D /* MockBookListTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE099BFE91B6A8917EA3358D /* MockBookListTabViewModel.swift */; };
@@ -216,7 +220,7 @@
 		4D2B5A1D83FEA075A806469E /* book.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
 		4DC5248B5A3F79A2579A8952 /* BookDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewModel.swift; sourceTree = "<group>"; };
 		514C07DA32C8BA53FACE8BB6 /* BookListTabViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListTabViewModelTests.swift; sourceTree = "<group>"; };
-		5877C1F15DC4B427ED32C958 /* AbceedLogic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AbceedLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5877C1F15DC4B427ED32C958 /* AbceedLogic.framework */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = AbceedLogic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFA33CF457B8B8ACD4E6B97 /* TestHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TestHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BD9274AAE0933AE4A857782 /* SubCategoryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryHeaderView.swift; sourceTree = "<group>"; };
 		6120126498B880C575068099 /* AbceedLogicTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AbceedLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,7 +232,7 @@
 		6DF982E5CD6F2B31B8D35399 /* MockBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBookRepository.swift; sourceTree = "<group>"; };
 		7645D01907468E5B0C20F3CF /* SwipeMenuViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwipeMenuViewController.framework; sourceTree = "<group>"; };
 		7B44CDEFC7CEECD9F0314C01 /* Builders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builders.swift; sourceTree = "<group>"; };
-		81A7F08588916079E8801D80 /* AbceedCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AbceedCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81A7F08588916079E8801D80 /* AbceedCore.framework */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = AbceedCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D5172B46549112E1046CA6 /* SubCategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryListViewController.swift; sourceTree = "<group>"; };
 		A3838DE3EF9DAB2CCD054388 /* UILibrary.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = UILibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A62EBCE183E08C847C0F4047 /* AbceedCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbceedCore.h; sourceTree = "<group>"; };
@@ -247,7 +251,7 @@
 		C4DF231FF3B90D54E1256E54 /* AbceedCoreTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = AbceedCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C527503F33B63C6BF3EC64F5 /* RxProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxProperty.swift; sourceTree = "<group>"; };
 		C6E369D5DF4813C47C1548DC /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nuke.framework; sourceTree = "<group>"; };
-		C92E6A59C59F7281756A8D81 /* AbceedUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AbceedUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C92E6A59C59F7281756A8D81 /* AbceedUI.framework */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = AbceedUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFD24D036093FB78911DBEE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2229E70CCAEDC454BBDECC5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D3692EBAC4158553A3F98800 /* Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rx.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127F1B18E4C2C671663B568D /* AbceedLogic.framework in Frameworks */,
 				3316B2CBC6ECD3BE0F8E8E00 /* TestHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +286,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF0B1109B8C199683DB3AE2 /* AbceedCore.framework in Frameworks */,
 				6C69F6386D105681733AEAD3 /* TestHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +310,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		75F40A90917DD8D6741999D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD85F00D9B2E12A53744B165 /* AbceedUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A46BE0C444C4E1AF84DA6EEC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,6 +332,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766ADAAC73442FB5DE28F587 /* AbceedUI.framework in Frameworks */,
 				872BB17CDBAA3D8931B5CDA9 /* TestHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,6 +587,7 @@
 				C9B9273C62D45EDE73D505B2 /* Sources */,
 				309E35C795BEABB456225B22 /* Resources */,
 				FE3AB309247AED49F447DCEE /* Carthage */,
+				75F40A90917DD8D6741999D8 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -617,7 +633,7 @@
 			name = AbceedLogic;
 			productName = AbceedLogic;
 			productReference = 5877C1F15DC4B427ED32C958 /* AbceedLogic.framework */;
-			productType = "com.apple.product-type.framework";
+			productType = "com.apple.product-type.framework.static";
 		};
 		57AF31890CBFD8729B989009 /* AbceedLogicTests */ = {
 			isa = PBXNativeTarget;
@@ -675,7 +691,7 @@
 			name = AbceedCore;
 			productName = AbceedCore;
 			productReference = 81A7F08588916079E8801D80 /* AbceedCore.framework */;
-			productType = "com.apple.product-type.framework";
+			productType = "com.apple.product-type.framework.static";
 		};
 		9DCF399CCD8D381C9840797D /* AbceedUI */ = {
 			isa = PBXNativeTarget;
@@ -693,7 +709,7 @@
 			name = AbceedUI;
 			productName = AbceedUI;
 			productReference = C92E6A59C59F7281756A8D81 /* AbceedUI.framework */;
-			productType = "com.apple.product-type.framework";
+			productType = "com.apple.product-type.framework.static";
 		};
 		CE5DB7B7857767AF51087AF0 /* AbceedCoreTests */ = {
 			isa = PBXNativeTarget;
@@ -1175,7 +1191,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.toshi0383.AbceedUI;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1342,7 +1357,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.toshi0383.AbceedUI;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1370,7 +1384,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.toshi0383.AbceedCore;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1398,7 +1411,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.toshi0383.AbceedCore;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1446,7 +1458,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.toshi0383.AbceedLogic;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1474,7 +1485,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.toshi0383.AbceedLogic;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
