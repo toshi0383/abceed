@@ -6,5 +6,5 @@ xcuserdata/
 build/
 DerivedData/
 .build/
-*.xcodeproj
+#*.xcodeproj
 Carthage/
