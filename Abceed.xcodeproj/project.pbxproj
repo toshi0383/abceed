@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		045A88144330EA7A21F448E3 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DB933CBFE42C1A5CC08E3C /* BookDetailViewController.swift */; };
+		0575937EA41497D2025E45C4 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; };
 		065819925F9648E6EC08DDBB /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0821F9AD240EEE343E1E99C6 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76B54D35821D81D53057DB0 /* RxSwift.framework */; };
+		0D6075204F933A53D003415B /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E369D5DF4813C47C1548DC /* Nuke.framework */; };
 		0EFC4BC4836417BD966E7572 /* MybookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A80C4AD7D5E114BDABEF5D6 /* MybookRepository.swift */; };
 		101807A974595E129ED47038 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		127F1B18E4C2C671663B568D /* AbceedLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5877C1F15DC4B427ED32C958 /* AbceedLogic.framework */; };
 		13F757F8E854BB43216F0B7A /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; };
-		14179FEFE6B396844DA837A9 /* AbceedUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 660DA6681B4271507405C461 /* AbceedUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		142B93A15CD225A07C953D0C /* RxNuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659F1FC08E4006D2C41DABF8 /* RxNuke.framework */; };
 		16D2FBE0F346D339A07D9ED3 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B74E49994A47A265CA3BBB /* BookListViewModel.swift */; };
 		1843976CDEC305D8B01BB665 /* MockBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF982E5CD6F2B31B8D35399 /* MockBookRepository.swift */; };
 		199F435FDFA363F35D25DDBA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88B235009CC6395F851A6EF /* Realm.framework */; };
 		1D9BCD636AB68BE273AFDD09 /* AbceedUIBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37F3BA4BCB36907039ADCEA8 /* AbceedUIBundle.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1E3230CFE4574F26DD5EA310 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88B235009CC6395F851A6EF /* Realm.framework */; };
 		200777A872698661D551B42D /* SubCategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A576169EFC95B67C9F496A /* SubCategoryListViewModel.swift */; };
 		205250DD28F8F92A0EC4E881 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D39E5D21301CC7CE462CDB0A /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		217710AF4FED19A07BF6EADB /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; };
+		3159D362D9DDA346B18FE9B3 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; };
 		31E944680D325E1D80C7629A /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED30DB3CED6C3FECA81826CF /* BookRepository.swift */; };
 		3316B2CBC6ECD3BE0F8E8E00 /* TestHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA33CF457B8B8ACD4E6B97 /* TestHelper.framework */; };
 		33E091E04CC1D773B83EE9EB /* MockBookListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C0A524C2382B80CA6D67CD /* MockBookListWireframe.swift */; };
@@ -32,28 +36,48 @@
 		3BF0B1109B8C199683DB3AE2 /* AbceedCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A7F08588916079E8801D80 /* AbceedCore.framework */; };
 		3CA3C2177C0E2973356B1977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB826C57D0A84C1CAF65DC14 /* Assets.xcassets */; };
 		3DA252C87C9B8B3A4C12FCFF /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		44E41E9F7D9FB089A92AA891 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88B235009CC6395F851A6EF /* Realm.framework */; };
 		4D1A8376A5418BFFC622C2FE /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4D5B3626670D787B35FC7E65 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; };
 		50DDAC9CE89363AE41057C97 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF64286DBB518AB391BB76A6 /* API.swift */; };
+		522250CF180D89A1674BF59B /* AbceedCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A7F08588916079E8801D80 /* AbceedCore.framework */; };
 		572FE800E96A3D6AED402B3A /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7645D01907468E5B0C20F3CF /* SwipeMenuViewController.framework */; };
+		5753783E9A8F7D4A65EFEBE4 /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7645D01907468E5B0C20F3CF /* SwipeMenuViewController.framework */; };
+		58A21E0BCEA01C4575C94BC2 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; };
 		5D09810DE2550393BA2077FC /* TopCategoryTabState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B03BFF0D508802FE96EFDD /* TopCategoryTabState.swift */; };
+		5E28BD18BA080D64ED143E02 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88B235009CC6395F851A6EF /* Realm.framework */; };
 		5EC2ED6D8D70E49AC6B9B05A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5280A67453312BBFFABA97 /* AppDelegate.swift */; };
+		60329B6F6033F6BFA4DFC4F1 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; };
 		606C5EFF080A969882B7FD62 /* TestHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA33CF457B8B8ACD4E6B97 /* TestHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		61C97C8F0E00156D1E297798 /* RxNuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659F1FC08E4006D2C41DABF8 /* RxNuke.framework */; };
+		621BB0F0F4AABF8793411E6A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39E5D21301CC7CE462CDB0A /* RealmSwift.framework */; };
 		6522C49BA08918FEE9296E2C /* TopCategoryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B3A1EF5442397D8F3B9267 /* TopCategoryTabViewController.swift */; };
+		655183753A9F0E2DF235F15F /* RxNuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 659F1FC08E4006D2C41DABF8 /* RxNuke.framework */; };
 		6691686633A2E925BCA1FA2D /* AbceedUIBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37F3BA4BCB36907039ADCEA8 /* AbceedUIBundle.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		672C66A8418B325ABB8999A3 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76B54D35821D81D53057DB0 /* RxSwift.framework */; };
 		6C69F6386D105681733AEAD3 /* TestHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA33CF457B8B8ACD4E6B97 /* TestHelper.framework */; };
 		6FA0703CC771F03265820ED0 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636D55B8A29FF22D4547CC8B /* TestHelper.swift */; };
+		7228F7890F53CA57D2BF15AC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88B235009CC6395F851A6EF /* Realm.framework */; };
+		74110665DA89C79115B253A3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39E5D21301CC7CE462CDB0A /* RealmSwift.framework */; };
+		758DC0D34EE08CE5ECE156FC /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; };
 		766ADAAC73442FB5DE28F587 /* AbceedUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92E6A59C59F7281756A8D81 /* AbceedUI.framework */; };
-		78710F1498EDAB0E7C6274C7 /* AbceedLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = E65CA2D4DE3D19707228E4F0 /* AbceedLogic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7909492DE0C102873CC9E835 /* SubCategoryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD9274AAE0933AE4A857782 /* SubCategoryHeaderView.swift */; };
 		7B01FF19CB334ED5CCFFAA79 /* BookListTabViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514C07DA32C8BA53FACE8BB6 /* BookListTabViewModelTests.swift */; };
 		80B46DF4CF70B6A047FD7A20 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E369D5DF4813C47C1548DC /* Nuke.framework */; };
 		8414B8DF2C27B1D9C083A5B7 /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2B5A1D83FEA075A806469E /* book.json */; };
 		84CAC06804DABA74567ECB73 /* BookDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC5248B5A3F79A2579A8952 /* BookDetailViewModel.swift */; };
 		872BB17CDBAA3D8931B5CDA9 /* TestHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA33CF457B8B8ACD4E6B97 /* TestHelper.framework */; };
+		90A4794CE7DEC54A71481A55 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; };
+		977105DC136F1AD3ECFB7BE3 /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7645D01907468E5B0C20F3CF /* SwipeMenuViewController.framework */; };
+		9A7AED2081C0F1F82294E968 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39E5D21301CC7CE462CDB0A /* RealmSwift.framework */; };
+		A0690A2E25D069FC8A40A50D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; };
+		A49E112C58B8135D3C090586 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; };
 		A72E34C3221C3CED5184FA2F /* TestHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 296396731E0173E749228D58 /* TestHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACDC0AA2FA7622B4CFC44354 /* Builders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B44CDEFC7CEECD9F0314C01 /* Builders.swift */; };
 		AEBBE91F6C5297D9399B8D34 /* SubCategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D5172B46549112E1046CA6 /* SubCategoryListViewController.swift */; };
+		B5EE6312195D833699A01A1B /* AbceedCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A7F08588916079E8801D80 /* AbceedCore.framework */; };
 		B7907BF82C23293542C61C11 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A88B235009CC6395F851A6EF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B809857D45433ECF78CE77C7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76B54D35821D81D53057DB0 /* RxSwift.framework */; };
 		BD85F00D9B2E12A53744B165 /* AbceedUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C92E6A59C59F7281756A8D81 /* AbceedUI.framework */; };
 		BEB763F7C020B6DEB53F869C /* Wireframes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4333244F39555C9AB633029 /* Wireframes.swift */; };
 		C44A994BABAD81FB6D951ACB /* TopCategoryTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B13530753D74793C3B64B29 /* TopCategoryTabViewModel.swift */; };
@@ -61,30 +85,61 @@
 		C6622A8B89ED5386B0857663 /* TestHelper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFA33CF457B8B8ACD4E6B97 /* TestHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C72892FAD3F21B63FE4A3DC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB96E39F6F588CAA1878AE92 /* AppDelegate.swift */; };
 		C7EE62DB83D797314F4962B1 /* DecodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDFE978107DA9C3A52A3515 /* DecodableTests.swift */; };
+		CA56F481AF84ED3035B599DE /* AbceedCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A7F08588916079E8801D80 /* AbceedCore.framework */; };
 		CB1AC39B6DDF466E49A3032E /* MockBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB78A8B5D3C69AA175B5566 /* MockBookRepository.swift */; };
 		CC3AD59FC6FE9DD4569FBA04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1199C9C8D35D10C5A69FE53C /* LaunchScreen.storyboard */; };
 		CE210492EB4A43CAC949973E /* UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA6DC38C8F70C3BD71B849E /* UIKit.swift */; };
 		CEE3D440CA0BFC1FCDF2E351 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E89BC58E96C252B43109ED8 /* BookCell.swift */; };
+		CF90E71AFF7520053B21141C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76B54D35821D81D53057DB0 /* RxSwift.framework */; };
+		D004D946ACD59F4FF66DD342 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF5670BF9F4ACC3F4AE93F5 /* RxCocoa.framework */; };
+		D2B087E07917F0DA0B149EF9 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76B54D35821D81D53057DB0 /* RxSwift.framework */; };
 		D3D618DA3ACB39EA53A1EA72 /* Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3692EBAC4158553A3F98800 /* Rx.swift */; };
 		D48C66FFA58EF6A13B6F9FB7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39E5D21301CC7CE462CDB0A /* RealmSwift.framework */; };
 		D6E655AE64BDD6D29AABA68A /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 39BE7316E815F8C6B61C6306 /* left-arrow.png */; };
 		D8E82AC8AFE9D5BC3B23FAC6 /* single_subcategory.json in Resources */ = {isa = PBXBuildFile; fileRef = F65FA9F87C6E0CF6431BB4E2 /* single_subcategory.json */; };
+		DC90C892450C222FA8C78221 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; };
+		DD8EB4B27FA663F15D987703 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D39E5D21301CC7CE462CDB0A /* RealmSwift.framework */; };
 		DEB107D9723C3482CBE4524D /* all_data.json in Resources */ = {isa = PBXBuildFile; fileRef = AACE44CBB328AED11706E79E /* all_data.json */; };
 		E08A75D6F9ED0B383A301D02 /* RxProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C527503F33B63C6BF3EC64F5 /* RxProperty.swift */; };
-		E0E3FA1CAD57ADCCD020F7C5 /* AbceedCore.h in Headers */ = {isa = PBXBuildFile; fileRef = A62EBCE183E08C847C0F4047 /* AbceedCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E50A91EBA130F07284507E8E /* AbceedLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5877C1F15DC4B427ED32C958 /* AbceedLogic.framework */; };
+		E667E23898D6FEAAB7E4250B /* AbceedLogic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5877C1F15DC4B427ED32C958 /* AbceedLogic.framework */; };
+		E97B9CAC60537EC351BFB6D6 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F404EB94599A7019F3AFB65A /* RxRelay.framework */; };
 		E99855A3B3EBF3989A88A47C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC5CBDBC771D281F1E5FD16 /* LaunchScreen.storyboard */; };
+		E9DEDCD00CFF5678C2028678 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E369D5DF4813C47C1548DC /* Nuke.framework */; };
+		EB455B1DCB62D08BD94DE84D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76B54D35821D81D53057DB0 /* RxSwift.framework */; };
 		F13F1D265A51123561A23BE9 /* BookListCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C5DF4C61057702F0A7B8D4 /* BookListCollectionCell.swift */; };
 		F454A3F0848CAE9EDD0DE0F8 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D76B54D35821D81D53057DB0 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F75C3667D536D142802DD6A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3776397EB1D568A6D5DA40C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		05ABEA1741A43F2280B8E4DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF360851EE47AA87F1D07466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63EE88F3A704E8F2B037580F;
+			remoteInfo = AbceedCore;
+		};
 		18AF5B0AC5FDADAD9536E1D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AF360851EE47AA87F1D07466 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 9DCF399CCD8D381C9840797D;
 			remoteInfo = AbceedUI;
+		};
+		2442935BA0B54E4FB1035993 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF360851EE47AA87F1D07466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63EE88F3A704E8F2B037580F;
+			remoteInfo = AbceedCore;
+		};
+		2A1565CF6EAF05644C8122D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF360851EE47AA87F1D07466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F350538950A8EF5F0A93B57;
+			remoteInfo = AbceedLogic;
 		};
 		2B255F0D822949A52CBA873E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -121,12 +176,26 @@
 			remoteGlobalIDString = 4C9038B06EA762204424C94D;
 			remoteInfo = TestHelper;
 		};
+		91A024BF4E5BC88701AC8D08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF360851EE47AA87F1D07466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F350538950A8EF5F0A93B57;
+			remoteInfo = AbceedLogic;
+		};
 		99E4B20B51064401E6A07891 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AF360851EE47AA87F1D07466 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4F350538950A8EF5F0A93B57;
 			remoteInfo = AbceedLogic;
+		};
+		B58DDC6FCBDD8BE7C0F1AB2E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF360851EE47AA87F1D07466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63EE88F3A704E8F2B037580F;
+			remoteInfo = AbceedCore;
 		};
 		CAA00E7B7E2DA9D0AB79B55C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -155,6 +224,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4C9038B06EA762204424C94D;
 			remoteInfo = TestHelper;
+		};
+		F161C06252DA321830F6A2FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF360851EE47AA87F1D07466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63EE88F3A704E8F2B037580F;
+			remoteInfo = AbceedCore;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -227,7 +303,6 @@
 		636D55B8A29FF22D4547CC8B /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		641AAD16D782A8253CD66690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		659F1FC08E4006D2C41DABF8 /* RxNuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxNuke.framework; sourceTree = "<group>"; };
-		660DA6681B4271507405C461 /* AbceedUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbceedUI.h; sourceTree = "<group>"; };
 		6C7FDFEC012BE88E53930E6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6DF982E5CD6F2B31B8D35399 /* MockBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBookRepository.swift; sourceTree = "<group>"; };
 		7645D01907468E5B0C20F3CF /* SwipeMenuViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwipeMenuViewController.framework; sourceTree = "<group>"; };
@@ -235,7 +310,6 @@
 		81A7F08588916079E8801D80 /* AbceedCore.framework */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.framework; path = AbceedCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D5172B46549112E1046CA6 /* SubCategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryListViewController.swift; sourceTree = "<group>"; };
 		A3838DE3EF9DAB2CCD054388 /* UILibrary.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = UILibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A62EBCE183E08C847C0F4047 /* AbceedCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbceedCore.h; sourceTree = "<group>"; };
 		A88B235009CC6395F851A6EF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		AACE44CBB328AED11706E79E /* all_data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = all_data.json; sourceTree = "<group>"; };
 		ABEBE23884F9CBE7AAAD3849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -261,7 +335,6 @@
 		DA5280A67453312BBFFABA97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF58EE2B9695330E8C1752A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E4A576169EFC95B67C9F496A /* SubCategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryListViewModel.swift; sourceTree = "<group>"; };
-		E65CA2D4DE3D19707228E4F0 /* AbceedLogic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AbceedLogic.h; sourceTree = "<group>"; };
 		EB96E39F6F588CAA1878AE92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED30DB3CED6C3FECA81826CF /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
 		F404EB94599A7019F3AFB65A /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxRelay.framework; sourceTree = "<group>"; };
@@ -277,7 +350,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5EE6312195D833699A01A1B /* AbceedCore.framework in Frameworks */,
 				127F1B18E4C2C671663B568D /* AbceedLogic.framework in Frameworks */,
+				1E3230CFE4574F26DD5EA310 /* Realm.framework in Frameworks */,
+				621BB0F0F4AABF8793411E6A /* RealmSwift.framework in Frameworks */,
+				D004D946ACD59F4FF66DD342 /* RxCocoa.framework in Frameworks */,
+				4D5B3626670D787B35FC7E65 /* RxRelay.framework in Frameworks */,
+				D2B087E07917F0DA0B149EF9 /* RxSwift.framework in Frameworks */,
 				3316B2CBC6ECD3BE0F8E8E00 /* TestHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +366,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF0B1109B8C199683DB3AE2 /* AbceedCore.framework in Frameworks */,
+				3159D362D9DDA346B18FE9B3 /* RxCocoa.framework in Frameworks */,
+				60329B6F6033F6BFA4DFC4F1 /* RxRelay.framework in Frameworks */,
+				EB455B1DCB62D08BD94DE84D /* RxSwift.framework in Frameworks */,
 				6C69F6386D105681733AEAD3 /* TestHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +379,9 @@
 			files = (
 				199F435FDFA363F35D25DDBA /* Realm.framework in Frameworks */,
 				D48C66FFA58EF6A13B6F9FB7 /* RealmSwift.framework in Frameworks */,
+				A49E112C58B8135D3C090586 /* RxCocoa.framework in Frameworks */,
+				DC90C892450C222FA8C78221 /* RxRelay.framework in Frameworks */,
+				0821F9AD240EEE343E1E99C6 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +390,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				80B46DF4CF70B6A047FD7A20 /* Nuke.framework in Frameworks */,
+				44E41E9F7D9FB089A92AA891 /* Realm.framework in Frameworks */,
+				9A7AED2081C0F1F82294E968 /* RealmSwift.framework in Frameworks */,
+				0575937EA41497D2025E45C4 /* RxCocoa.framework in Frameworks */,
 				142B93A15CD225A07C953D0C /* RxNuke.framework in Frameworks */,
+				58A21E0BCEA01C4575C94BC2 /* RxRelay.framework in Frameworks */,
+				672C66A8418B325ABB8999A3 /* RxSwift.framework in Frameworks */,
 				572FE800E96A3D6AED402B3A /* SwipeMenuViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +404,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522250CF180D89A1674BF59B /* AbceedCore.framework in Frameworks */,
+				E50A91EBA130F07284507E8E /* AbceedLogic.framework in Frameworks */,
 				BD85F00D9B2E12A53744B165 /* AbceedUI.framework in Frameworks */,
+				E9DEDCD00CFF5678C2028678 /* Nuke.framework in Frameworks */,
+				5E28BD18BA080D64ED143E02 /* Realm.framework in Frameworks */,
+				DD8EB4B27FA663F15D987703 /* RealmSwift.framework in Frameworks */,
+				A0690A2E25D069FC8A40A50D /* RxCocoa.framework in Frameworks */,
+				655183753A9F0E2DF235F15F /* RxNuke.framework in Frameworks */,
+				E97B9CAC60537EC351BFB6D6 /* RxRelay.framework in Frameworks */,
+				B809857D45433ECF78CE77C7 /* RxSwift.framework in Frameworks */,
+				977105DC136F1AD3ECFB7BE3 /* SwipeMenuViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,9 +422,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B216105C9700BE75B1305EE /* RxSwift.framework in Frameworks */,
-				13F757F8E854BB43216F0B7A /* RxRelay.framework in Frameworks */,
 				217710AF4FED19A07BF6EADB /* RxCocoa.framework in Frameworks */,
+				13F757F8E854BB43216F0B7A /* RxRelay.framework in Frameworks */,
+				3B216105C9700BE75B1305EE /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +432,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA56F481AF84ED3035B599DE /* AbceedCore.framework in Frameworks */,
+				E667E23898D6FEAAB7E4250B /* AbceedLogic.framework in Frameworks */,
 				766ADAAC73442FB5DE28F587 /* AbceedUI.framework in Frameworks */,
+				0D6075204F933A53D003415B /* Nuke.framework in Frameworks */,
+				7228F7890F53CA57D2BF15AC /* Realm.framework in Frameworks */,
+				74110665DA89C79115B253A3 /* RealmSwift.framework in Frameworks */,
+				90A4794CE7DEC54A71481A55 /* RxCocoa.framework in Frameworks */,
+				61C97C8F0E00156D1E297798 /* RxNuke.framework in Frameworks */,
+				758DC0D34EE08CE5ECE156FC /* RxRelay.framework in Frameworks */,
+				CF90E71AFF7520053B21141C /* RxSwift.framework in Frameworks */,
+				5753783E9A8F7D4A65EFEBE4 /* SwipeMenuViewController.framework in Frameworks */,
 				872BB17CDBAA3D8931B5CDA9 /* TestHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,7 +494,6 @@
 		224EDF2CE3F5D86335CAA0A0 /* AbceedUI */ = {
 			isa = PBXGroup;
 			children = (
-				660DA6681B4271507405C461 /* AbceedUI.h */,
 				3E89BC58E96C252B43109ED8 /* BookCell.swift */,
 				B9DB933CBFE42C1A5CC08E3C /* BookDetailViewController.swift */,
 				F9C5DF4C61057702F0A7B8D4 /* BookListCollectionCell.swift */,
@@ -402,7 +511,6 @@
 		35F5AB67CEC916C8FF097A5B /* AbceedCore */ = {
 			isa = PBXGroup;
 			children = (
-				A62EBCE183E08C847C0F4047 /* AbceedCore.h */,
 				AF64286DBB518AB391BB76A6 /* API.swift */,
 				2ACA72B6B89050234B9A1185 /* Info.plist */,
 				B288FD3BF56C032384830294 /* Protocols.swift */,
@@ -424,7 +532,6 @@
 		4FC0541C132FCFF5426C68F4 /* AbceedLogic */ = {
 			isa = PBXGroup;
 			children = (
-				E65CA2D4DE3D19707228E4F0 /* AbceedLogic.h */,
 				4DC5248B5A3F79A2579A8952 /* BookDetailViewModel.swift */,
 				21B74E49994A47A265CA3BBB /* BookListViewModel.swift */,
 				ED30DB3CED6C3FECA81826CF /* BookRepository.swift */,
@@ -529,35 +636,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		3E36D4C0312E14B5FFF284D6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				78710F1498EDAB0E7C6274C7 /* AbceedLogic.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A06A63904C54235F5A7EBBC5 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				14179FEFE6B396844DA837A9 /* AbceedUI.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		AA17A75B19E180225E32DFDF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A72E34C3221C3CED5184FA2F /* TestHelper.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F0AAC7B1DFD3E589CB2C8EBE /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E0E3FA1CAD57ADCCD020F7C5 /* AbceedCore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +675,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				5B367D67346125B24DA44A24 /* PBXTargetDependency */,
+				78814DCFF18B96B0CB37E4C5 /* PBXTargetDependency */,
 				84891429D7AB65D0C65049D0 /* PBXTargetDependency */,
 				B537B86F0E88538241776C35 /* PBXTargetDependency */,
 			);
@@ -621,7 +706,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B5A7FC9AEAA39AA92406274 /* Build configuration list for PBXNativeTarget "AbceedLogic" */;
 			buildPhases = (
-				3E36D4C0312E14B5FFF284D6 /* Headers */,
 				3AACA7CBDA13924FB8778C2A /* Sources */,
 				674800893E409B21252D2D89 /* Frameworks */,
 			);
@@ -646,6 +730,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9C95B0D80588B50B0B39D60A /* PBXTargetDependency */,
 				D704109E251D99F03FD1688F /* PBXTargetDependency */,
 				DDF34D414F53781BC33BC5F2 /* PBXTargetDependency */,
 			);
@@ -667,6 +752,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				4256CE31642BF541E2991412 /* PBXTargetDependency */,
+				8D06694E0FF66F3626CA16CE /* PBXTargetDependency */,
 				EA6B986AEF5C3CE5008D6A16 /* PBXTargetDependency */,
 				544FBFF629C82A0E499B2602 /* PBXTargetDependency */,
 				557B49E7182B97BDF486FF3E /* PBXTargetDependency */,
@@ -680,7 +767,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83AAF436CBBF200A45A7D9F3 /* Build configuration list for PBXNativeTarget "AbceedCore" */;
 			buildPhases = (
-				F0AAC7B1DFD3E589CB2C8EBE /* Headers */,
 				9225195C2AABDA81B789B1DA /* Sources */,
 				A46BE0C444C4E1AF84DA6EEC /* Frameworks */,
 			);
@@ -697,13 +783,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 363B3892AFBA7C02FB50A46D /* Build configuration list for PBXNativeTarget "AbceedUI" */;
 			buildPhases = (
-				A06A63904C54235F5A7EBBC5 /* Headers */,
 				83497004720121C6F687A5BD /* Sources */,
 				6B70400ABC381786B782C466 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				14EB97BA36D9CC610AD5A48E /* PBXTargetDependency */,
 				1910877358CBD704684276FA /* PBXTargetDependency */,
 			);
 			name = AbceedUI;
@@ -964,10 +1050,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		14EB97BA36D9CC610AD5A48E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63EE88F3A704E8F2B037580F /* AbceedCore */;
+			targetProxy = B58DDC6FCBDD8BE7C0F1AB2E /* PBXContainerItemProxy */;
+		};
 		1910877358CBD704684276FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4F350538950A8EF5F0A93B57 /* AbceedLogic */;
 			targetProxy = CAA00E7B7E2DA9D0AB79B55C /* PBXContainerItemProxy */;
+		};
+		4256CE31642BF541E2991412 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63EE88F3A704E8F2B037580F /* AbceedCore */;
+			targetProxy = 05ABEA1741A43F2280B8E4DF /* PBXContainerItemProxy */;
 		};
 		544FBFF629C82A0E499B2602 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -979,10 +1075,20 @@
 			target = 4C9038B06EA762204424C94D /* TestHelper */;
 			targetProxy = EDCBA9D9A963559B8D6883A9 /* PBXContainerItemProxy */;
 		};
+		5B367D67346125B24DA44A24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63EE88F3A704E8F2B037580F /* AbceedCore */;
+			targetProxy = 2442935BA0B54E4FB1035993 /* PBXContainerItemProxy */;
+		};
 		694DF868664CEA62E61D4A8C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 63EE88F3A704E8F2B037580F /* AbceedCore */;
 			targetProxy = 30194EF866F1EAA178C2FFCD /* PBXContainerItemProxy */;
+		};
+		78814DCFF18B96B0CB37E4C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F350538950A8EF5F0A93B57 /* AbceedLogic */;
+			targetProxy = 91A024BF4E5BC88701AC8D08 /* PBXContainerItemProxy */;
 		};
 		83B87D26987F14180A6042D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -993,6 +1099,16 @@
 			isa = PBXTargetDependency;
 			target = 9DCF399CCD8D381C9840797D /* AbceedUI */;
 			targetProxy = 18AF5B0AC5FDADAD9536E1D5 /* PBXContainerItemProxy */;
+		};
+		8D06694E0FF66F3626CA16CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F350538950A8EF5F0A93B57 /* AbceedLogic */;
+			targetProxy = 2A1565CF6EAF05644C8122D0 /* PBXContainerItemProxy */;
+		};
+		9C95B0D80588B50B0B39D60A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63EE88F3A704E8F2B037580F /* AbceedCore */;
+			targetProxy = F161C06252DA321830F6A2FC /* PBXContainerItemProxy */;
 		};
 		A66588AD1810A63108DE1AE9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
