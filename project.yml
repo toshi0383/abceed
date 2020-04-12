@@ -3,6 +3,7 @@ options:
   minimumXcodeGenVersion: 2.14.0
   deploymentTarget: 13.2
   bundleIdPrefix: jp.toshi0383
+  transitivelyLinkDependencies: true
 targets:
   Abceed:
     platform: iOS
