@@ -3,6 +3,7 @@ options:
   minimumXcodeGenVersion: 2.14.0
   deploymentTarget: 13.2
   bundleIdPrefix: jp.toshi0383
+  transitivelyLinkDependencies: true
 targets:
   Abceed:
     platform: iOS
@@ -11,8 +12,6 @@ targets:
       - Abceed
     dependencies:
       - target: AbceedUI
-        link: false
-        embed: false
       - target: AbceedUIBundle
   UILibrary:
     platform: iOS
@@ -21,15 +20,11 @@ targets:
       - UILibrary
     dependencies:
       - target: AbceedUI
-        link: false
-        embed: false
       - target: AbceedUIBundle
       - target: TestHelper
   AbceedCore:
     platform: iOS
-    type: framework
-    settings:
-      MACH_O_TYPE: staticlib
+    type: framework.static
     sources:
       - AbceedCore/
     dependencies:
@@ -43,8 +38,6 @@ targets:
       - AbceedCoreTests/
     dependencies:
       - target: AbceedCore
-        link: false
-        embed: false
       - target: TestHelper
     scheme:
       testTargets:
@@ -52,15 +45,11 @@ targets:
       gatherCoverageData: true
   AbceedLogic:
     platform: iOS
-    type: framework
-    settings:
-      MACH_O_TYPE: staticlib
+    type: framework.static
     sources:
       - AbceedLogic/
     dependencies:
       - target: AbceedCore
-        link: false
-        embed: false
       - carthage: Realm
       - carthage: RealmSwift
   AbceedLogicTests:
@@ -70,8 +59,6 @@ targets:
       - AbceedLogicTests/
     dependencies:
       - target: AbceedLogic
-        link: false
-        embed: false
       - target: TestHelper
     scheme:
       testTargets:
@@ -79,9 +66,7 @@ targets:
       gatherCoverageData: true
   AbceedUI:
     platform: iOS
-    type: framework
-    settings:
-      MACH_O_TYPE: staticlib
+    type: framework.static
     sources:
       - AbceedUI/
     dependencies:
@@ -89,8 +74,6 @@ targets:
       - carthage: RxNuke
       - carthage: SwipeMenuViewController
       - target: AbceedLogic
-        link: false
-        embed: false
   TestHelper:
     platform: iOS
     type: framework
