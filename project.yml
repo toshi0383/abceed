@@ -22,26 +22,11 @@ targets:
       SUPPORTS_MACCATALYST: YES
     dependencies:
       - target: AbceedLogic
-        link: false
-        embed: false
-      - target: AbceedCore
-        link: false
-        embed: false
       - target: AbceedUIBundle
       - package: SDWebImageSwiftUI
         product: SDWebImage
       - package: SDWebImageSwiftUI
         product: SDWebImageSwiftUI
-      - package: RxSwift
-        product: RxSwift
-      - package: RxSwift
-        product: RxCocoa
-      - package: RxSwift
-        product: RxRelay
-      - package: Realm
-        product: Realm
-      - package: Realm
-        product: RealmSwift
   UILibrary:
     platform: iOS
     type: application
@@ -82,12 +67,6 @@ targets:
       - AbceedLogic/
     dependencies:
       - target: AbceedCore
-      - package: RxSwift
-        product: RxSwift
-      - package: RxSwift
-        product: RxCocoa
-      - package: RxSwift
-        product: RxRelay
       - package: Realm
         product: Realm
       - package: Realm
