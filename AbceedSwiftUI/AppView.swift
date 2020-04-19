@@ -61,16 +61,11 @@ struct TopCategoryView: View {
 
     var body: some View {
         GeometryReader { proxy in
-
-            // List { // Cannot use `List`. BookListView is clipped by SafeArea.
-
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    ForEach(self.topCategory.subCategories) { subCategory in
-                        BookListView(category: subCategory)
-                            .frame(width: proxy.size.width, height: 180)
-                            .environmentObject(self.dragState)
-                    }
+            List {
+                ForEach(self.topCategory.subCategories) { subCategory in
+                    BookListView(category: subCategory)
+                        .frame(width: proxy.size.width, height: 180)
+                        .environmentObject(self.dragState)
                 }
             }
         }
