@@ -58,12 +58,11 @@ And of-course this makes it easy to test presentation layer using UITesting or s
 
 ## Xcode Version
 
-- Xcode 11.3.1
+- Xcode 11.4
 
 ## Bootstrap
 
 ```
-carthage bootstrap --platform ios
 xcodegen
 ```
 
