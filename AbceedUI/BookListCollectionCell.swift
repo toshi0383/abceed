@@ -7,7 +7,7 @@ protocol BookListDelegate: AnyObject {
     func bookList(_ collectionView: UICollectionView, didSelectBook book: Book)
 }
 
-final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate {
 
     static let verticalMargin: CGFloat = bottomMargin
     static let bottomMargin: CGFloat = 8 // for drop shadow
@@ -32,6 +32,7 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
             collectionView.register(BookCell.self, forCellWithReuseIdentifier: cellID)
             collectionView.dataSource = self
             collectionView.delegate = self
+            collectionView.dragDelegate = self
             self.collectionView = collectionView
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview(collectionView)
@@ -63,5 +64,28 @@ final class BookListCollectionCell: UITableViewCell, UICollectionViewDataSource,
         guard let books = viewModel?.books.value else { return }
 
         delegate?.bookList(collectionView, didSelectBook: books[indexPath.item])
+    }
+
+    // - MARK: UICollectionViewDragDelegate
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        guard let books = viewModel?.books.value else { return [] }
+
+        guard let cell = collectionView.cellForItem(at: indexPath) as? BookCell,
+         let image = cell.thumbnailView.image else { return [] }
+
+        let selectedBook = books[indexPath.item]
+
+        guard let userActivity = NSUserActivity(book: selectedBook) else {
+            return []
+        }
+
+        let itemProvider = NSItemProvider(object: image)
+        itemProvider.registerObject(userActivity, visibility: .all)
+
+        let dragItem = UIDragItem(itemProvider: itemProvider)
+        dragItem.localObject = selectedBook
+
+        return [dragItem]
+
     }
 }

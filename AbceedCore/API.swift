@@ -72,7 +72,7 @@ public struct Category: Decodable, Hashable, Identifiable {
     }
 }
 
-public struct Book: Decodable, Hashable, Identifiable {
+public struct Book: Codable, Hashable, Identifiable {
     public let id: String
     public let name: String
     public let publisher: String
@@ -103,5 +103,15 @@ public struct Book: Decodable, Hashable, Identifiable {
         publisher = try values.decode(String.self, forKey: .publisher)
         author = try values.decode(String.self, forKey: .author)
         imgURL = try values.decode(String.self, forKey: .imgURL)
+    }
+}
+
+extension NSUserActivity {
+    public convenience init?(book: Book) {
+        guard let json = try? JSONEncoder().encode(book) else { return nil }
+
+        self.init(activityType: "jp.toshi0383.abceed.openDetail")
+        userInfo = ["book": json]
+        title = "openDetail"
     }
 }

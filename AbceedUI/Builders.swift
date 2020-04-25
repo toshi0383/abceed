@@ -28,7 +28,7 @@ public final class TopCategoryTabBuilder {
         self.bookRepository = bookRepository
     }
 
-    public func build() -> UINavigationController {
+    public func build() -> TopCategoryTabWireframe {
         let viewModel = TopCategoryTabViewModel(
             bookRepository: bookRepository
         )
@@ -43,7 +43,7 @@ public final class TopCategoryTabBuilder {
 
         wireframe.navigationController = nc
 
-        return nc
+        return wireframe
     }
 }
 
