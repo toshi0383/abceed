@@ -13,8 +13,24 @@ public class MybookRepositoryImpl: MybookRepository {
     }
 
     private let mybooksRelay = PublishRelay<[String]>()
+    private var notificationToken: NotificationToken?
 
-    public init() {}
+    public init() {
+        let realm = try! Realm()
+
+        notificationToken = realm.objects(Mybook.self).observe { [weak self] (changes) in
+            guard let me = self else { return }
+
+            switch changes {
+            case .initial(let mybooks):
+                me.mybooks = mybooks.map { $0.id }
+            case .update(let mybooks, _, _, _):
+                me.mybooks = mybooks.map { $0.id }
+            case .error(let error):
+                fatalError("error: \(error)")
+            }
+        }
+    }
 
     public func isMybook(_ bookID: String) -> AbceedCore.Property<Bool> {
         return Property(

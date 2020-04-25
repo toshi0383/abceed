@@ -7,7 +7,7 @@ final class BookCell: UICollectionViewCell {
 
     static let defaultSize = CGSize(width: 80, height: 121)
 
-    private lazy var thumbnailView: UIImageView = {
+    private(set) lazy var thumbnailView: UIImageView = {
         let v = UIImageView()
         v.backgroundColor = .clear
         v.contentMode = .scaleAspectFit

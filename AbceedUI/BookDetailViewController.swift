@@ -25,6 +25,18 @@ final class BookDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        view.window?.windowScene?.userActivity = NSUserActivity(book: viewModel.book)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        view.window?.windowScene?.userActivity = nil
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
