@@ -28,9 +28,10 @@ public final class TopCategoryTabBuilder {
         self.bookRepository = bookRepository
     }
 
-    public func build() -> TopCategoryTabWireframe {
+    public func build(_ scene: UIWindowScene) -> TopCategoryTabWireframe {
         let viewModel = TopCategoryTabViewModel(
-            bookRepository: bookRepository
+            bookRepository: bookRepository,
+            eventRepository: EventRepositoryPool.shared.getEventRepository(forScene: scene)
         )
 
         let wireframe = TopCategoryTabWireframeImpl()
@@ -58,5 +59,21 @@ public final class SubCategoryListBuilder {
     public func build() -> UIViewController {
         let viewModel = SubCategoryListViewModel(topCategory: topCategory)
         return SubCategoryListViewController(viewModel: viewModel)
+    }
+}
+
+public final class BookListBuilder {
+    private let books: [Book]
+
+    public init(books: [Book]) {
+        self.books = books
+    }
+
+    public func build(_ scene: UIWindowScene) -> BookListViewModel {
+        let eventRepository = EventRepositoryPool.shared.getEventRepository(forScene: scene)
+        let viewModel = BookListViewModel(books: books,
+                                          eventRepository: eventRepository)
+
+        return viewModel
     }
 }

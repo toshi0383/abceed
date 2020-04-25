@@ -57,6 +57,13 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
                 }
             })
             .disposed(by: disposeBag)
+
+        viewModel.navigateToBookDetail
+            .observeOn(ConcurrentMainScheduler.instance)
+            .subscribe(onNext: { [weak self] book in
+                self?.wireframe.navigateToBookDetail(book: book)
+            })
+            .disposed(by: disposeBag)
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -133,10 +140,4 @@ public final class TopCategoryTabViewController: SwipeMenuViewController {
         return vc
     }
 
-}
-
-extension TopCategoryTabViewController: BookListDelegate {
-    func bookList(_ collectionView: UICollectionView, didSelectBook book: Book) {
-        wireframe.navigateToBookDetail(book: book)
-    }
 }

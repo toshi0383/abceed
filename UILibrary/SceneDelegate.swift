@@ -33,12 +33,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate {
 
     private func defaultWireframe() -> Wireframe {
-        let wireframe = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
+        let wireframe = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build(window!.windowScene!)
         return wireframe
     }
 
     private func bookDetailStory() -> Wireframe {
-        let wf = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build()
+        let wf = TopCategoryTabBuilder(bookRepository: MockBookRepository()).build(window!.windowScene!)
         guard let topnc = wf.navigationController else { fatalError() }
         let decoder = JSONDecoder()
         let book = try! decoder.decode(Book.self, from: readData("book.json"))
