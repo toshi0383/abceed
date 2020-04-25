@@ -1,6 +1,5 @@
 import AbceedCore
 import RxSwift
-import RxRelay
 
 public final class TopCategoryTabViewModel: TopCategoryTabViewModelType {
     public let state: Property<TopCategoryTabState>
