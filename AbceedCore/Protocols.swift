@@ -27,8 +27,8 @@ public protocol BookRepository {
 }
 
 public protocol EventRepository {
-    var event: Observable<Event> { get }
-    func accept(_ event: Event)
+    func accept(_ event: EventType)
+    func observe<T>(_ eventType: T.Type) -> Observable<T>
 }
 
 public protocol MybookRepository {

@@ -4,18 +4,23 @@ import UIKit
 import RxRelay
 import RxSwift
 
-public typealias Event = AbceedCore.Event
+public typealias Event = AbceedCore.EventType
 
 public final class EventRepositoryImpl: EventRepository {
-    public let event: Observable<Event>
     public let _event = PublishRelay<Event>()
 
     init() {
-        self.event = _event.asObservable()
     }
 
     public func accept(_ event: Event) {
         _event.accept(event)
+    }
+
+    public func observe<T>(_ eventType: T.Type) -> Observable<T> {
+        return _event.asObservable()
+            .flatMap { (e: Event) -> Observable<T> in
+                e is T ? .just(e as! T) : .empty()
+            }
     }
 }
 

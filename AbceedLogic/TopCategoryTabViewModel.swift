@@ -15,10 +15,7 @@ public final class TopCategoryTabViewModel: TopCategoryTabViewModelType {
                 .map(TopCategoryTabState.init(response:))
         )
 
-        navigateToBookDetail = eventRepository.event.flatMap { event -> Observable<Book> in
-            guard case let .select(book) = event else { return .empty() }
-
-            return .just(book)
-        }
+        navigateToBookDetail = eventRepository.observe(SelectBook.self)
+            .map { $0.book }
     }
 }

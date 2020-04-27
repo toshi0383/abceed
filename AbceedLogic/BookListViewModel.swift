@@ -11,6 +11,6 @@ public final class BookListViewModel: BookListViewModelType {
     }
 
     public func select(_ book: Book) {
-        eventRepository.accept(.select(book))
+        eventRepository.accept(SelectBook(book))
     }
 }
