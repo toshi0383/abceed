@@ -26,7 +26,7 @@ public protocol BookRepository {
     func getAll() -> Observable<MockBookAllResponse>
 }
 
-public protocol EventRepository {
+public protocol EventBus {
     func accept(_ event: EventType)
     func observe<T>(_ eventType: T.Type) -> Observable<T>
 }

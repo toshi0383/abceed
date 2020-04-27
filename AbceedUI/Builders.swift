@@ -31,7 +31,7 @@ public final class TopCategoryTabBuilder {
     public func build(_ scene: UIWindowScene) -> TopCategoryTabWireframe {
         let viewModel = TopCategoryTabViewModel(
             bookRepository: bookRepository,
-            eventRepository: EventRepositoryPool.shared.getEventRepository(forScene: scene)
+            eventBus: EventBusPool.shared.getEventBus(forScene: scene)
         )
 
         let wireframe = TopCategoryTabWireframeImpl()
@@ -70,9 +70,9 @@ public final class BookListBuilder {
     }
 
     public func build(_ scene: UIWindowScene) -> BookListViewModel {
-        let eventRepository = EventRepositoryPool.shared.getEventRepository(forScene: scene)
+        let eventBus = EventBusPool.shared.getEventBus(forScene: scene)
         let viewModel = BookListViewModel(books: books,
-                                          eventRepository: eventRepository)
+                                          eventBus: eventBus)
 
         return viewModel
     }

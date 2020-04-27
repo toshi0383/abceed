@@ -6,7 +6,7 @@ public final class TopCategoryTabViewModel: TopCategoryTabViewModelType {
     public var navigateToBookDetail: Observable<Book>
 
     public init(bookRepository: BookRepository,
-                eventRepository: EventRepository) {
+                eventBus: EventBus) {
 
         state = Property(
             initial: .loading,
@@ -15,7 +15,7 @@ public final class TopCategoryTabViewModel: TopCategoryTabViewModelType {
                 .map(TopCategoryTabState.init(response:))
         )
 
-        navigateToBookDetail = eventRepository.observe(SelectBook.self)
+        navigateToBookDetail = eventBus.observe(SelectBook.self)
             .map { $0.book }
     }
 }

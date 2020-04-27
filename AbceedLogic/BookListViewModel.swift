@@ -2,15 +2,15 @@ import AbceedCore
 
 public final class BookListViewModel: BookListViewModelType {
     public let books: Property<[Book]>
-    private let eventRepository: EventRepository
+    private let eventBus: EventBus
 
     public init(books: [Book],
-                eventRepository: EventRepository) {
+                eventBus: EventBus) {
         self.books = Property(books)
-        self.eventRepository = eventRepository
+        self.eventBus = eventBus
     }
 
     public func select(_ book: Book) {
-        eventRepository.accept(SelectBook(book))
+        eventBus.accept(SelectBook(book))
     }
 }
