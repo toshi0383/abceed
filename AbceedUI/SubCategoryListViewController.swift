@@ -58,8 +58,10 @@ public final class SubCategoryListViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID)! as! BookListCollectionCell
         let section = indexPath.section
 
-        cell.configure(BookListViewModel(books: viewModel.subCategories.value[section].books),
-                       delegate: parent as? BookListDelegate)
+        let viewModel = BookListBuilder(books: self.viewModel.subCategories.value[section].books)
+            .build(view.window!.windowScene!)
+
+        cell.configure(viewModel)
 
         return cell
     }
