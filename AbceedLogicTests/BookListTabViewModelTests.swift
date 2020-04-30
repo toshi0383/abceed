@@ -6,17 +6,20 @@ import RxSwift
 
 final class TopCategoryTabViewModelTests: XCTestCase {
     func testStateSuccessful() {
-        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(MockResponse.just))
+        let eventBus = EventBusImpl()
+        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(MockResponse.just), eventBus: eventBus)
         XCTAssertTrue(t.state.value.isSuccessful)
     }
 
     func testStateEmpty() {
-        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(.empty()))
+        let eventBus = EventBusImpl()
+        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(.empty()), eventBus: eventBus)
         XCTAssertEqual(t.state.value, .loading)
     }
 
     func testStateError() {
-        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(MockResponse.error))
+        let eventBus = EventBusImpl()
+        let t = TopCategoryTabViewModel(bookRepository: MockBookRepository(MockResponse.error), eventBus: eventBus)
         XCTAssertEqual(t.state.value, .error("データを取得できませんでした。"))
     }
 }
