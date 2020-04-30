@@ -9,7 +9,7 @@ final class BookDetailPresenterImpl: BookDetailPresenter {
 
     init(bookDetailUseCase: BookDetailUseCase) {
         self.bookDetailUseCase = bookDetailUseCase
-     }
+    }
 
     func transform(book: Book, tapMybookButton: Observable<Void>) -> BookDetail.Input {
         let showMessage = PublishRelay<String>()
