@@ -1,5 +1,4 @@
 import AbceedCore
-import AbceedLogic
 import Nuke
 import RxCocoa
 import RxSwift
@@ -7,12 +6,18 @@ import UIKit
 
 final class BookDetailViewController: UIViewController {
 
-    private let viewModel: BookDetailViewModelType
+    private let input: BookDetail.Input
     private let disposeBag = DisposeBag()
     private let mybookButton = MybookButton()
+    private let presenter: BookDetailPresenter // retain
 
-    init(viewModel: BookDetailViewModelType) {
-        self.viewModel = viewModel
+    init(book: Book, presenter: BookDetailPresenter) {
+        self.presenter = presenter
+
+        self.input = presenter.transform(
+            book: book,
+            tapMybookButton: mybookButton.rx.tapGesture
+        )
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,7 +33,7 @@ final class BookDetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        view.window?.windowScene?.userActivity = NSUserActivity(book: viewModel.book)
+        view.window?.windowScene?.userActivity = NSUserActivity(book: input.book)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,7 +102,20 @@ final class BookDetailViewController: UIViewController {
             baseStack.heightAnchor.constraint(equalTo: thumbnailView.heightAnchor),
         ])
 
-        let book = viewModel.book
+        input.isMybook.asObservable()
+            .bind(to: mybookButton.isMybook)
+            .disposed(by: disposeBag)
+
+        input.showMessage
+            .observeOn(ConcurrentMainScheduler.instance)
+            .subscribe(onNext: { [weak self] message in
+                let a = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+                a.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self?.navigationController?.present(a, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+
+        let book = input.book
 
         title.text = book.name
         author.text = book.author
@@ -114,24 +132,6 @@ final class BookDetailViewController: UIViewController {
 
         Nuke.loadImage(with: URL(string: book.imgURL)!, into: thumbnailView.imageView)
 
-        viewModel.isMybook.asObservable()
-            .bind(to: mybookButton.isMybook)
-            .disposed(by: disposeBag)
-
-        mybookButton.rx.tapGesture
-            .subscribe(onNext: { [weak self] in
-                self?.viewModel.tapMybookButton()
-            })
-            .disposed(by: disposeBag)
-
-        viewModel.showMessage
-            .observeOn(ConcurrentMainScheduler.instance)
-            .subscribe(onNext: { [weak self] message in
-                let a = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-                a.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self?.navigationController?.present(a, animated: true, completion: nil)
-            })
-            .disposed(by: disposeBag)
     }
 }
 
