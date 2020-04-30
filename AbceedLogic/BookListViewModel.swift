@@ -1,5 +1,6 @@
 import AbceedCore
 
+// TODO: Separate into Presenter and UseCase
 public final class BookListViewModel: BookListViewModelType {
     public let books: Property<[Book]>
     private let eventBus: EventBus

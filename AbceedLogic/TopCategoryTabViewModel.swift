@@ -1,6 +1,7 @@
 import AbceedCore
 import RxSwift
 
+// TODO: Separate into Presenter and UseCase
 public final class TopCategoryTabViewModel: TopCategoryTabViewModelType {
     public let state: Property<TopCategoryTabState>
     public var navigateToBookDetail: Observable<Book>
