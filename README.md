@@ -9,14 +9,14 @@ This is a proof of concept project which demonstrates:
 
 It has:
 
-- Repository
-- Builder
-- Wireframe
+- Repository (Logic)
+- UseCase (Logic)
+- Builder (UI)
+- Wireframe (UI)
+- Presenter (UI)
 
 It doesn't have:
 
-- UseCase   (merged into ViewModel)
-- Presenter (merged into ViewController)
 - DataStore (merged into Repository)
 
 Clean Architecture is basically extension of MVVM, so I only chose couple of components to fit my needs for current (and potentially future) state of this project.
@@ -38,8 +38,8 @@ Frameworks are linked statically, so there's no runtime overhead compared to mon
 
 Other notes on code separation are:
 
-- ViewModel's interface is in `Core`, ViewModel's impl is in `Logic`.
-  This way `UILibrary` target doesn't require `Logic` target.
+- UseCase's interface is in `Core`, UseCase's impl is in `Logic`.
+  This way for example `UILibrary` target technically doesn't require `Logic` target.
 
 ### 3. Mock data driven UI development
 

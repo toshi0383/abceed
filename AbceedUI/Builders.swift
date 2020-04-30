@@ -10,12 +10,15 @@ public final class BookDetailBuilder {
     }
 
     public func build() -> UIViewController {
-        let viewModel = BookDetailViewModel(
-            book: book,
+        let bookDetailUseCase = BookDetailUseCaseImpl(
             mybookRepository: MybookRepositoryImpl()
         )
 
-        let vc = BookDetailViewController(viewModel: viewModel)
+        let presenter = BookDetailPresenterImpl(
+            bookDetailUseCase: bookDetailUseCase
+        )
+
+        let vc = BookDetailViewController(book: book, presenter: presenter)
 
         return vc
     }
