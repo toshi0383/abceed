@@ -44,8 +44,9 @@ final class BookDetailViewController: UIViewController {
 
         navigationController?.isNavigationBarHidden = false
 
-        let path = Bundle.main.path(forResource: "AbceedUIBundle", ofType: "bundle")!
-        let arrow = UIBarButtonItem(image: UIImage(named: "left-arrow", in: Bundle(path: path), compatibleWith: nil)!, style: .plain, target: self, action: #selector(pop))
+        let leftArrow: UIImage = AbceedUIBundle.image.leftArrow()
+
+        let arrow = UIBarButtonItem(image: leftArrow, style: .plain, target: self, action: #selector(pop))
         arrow.tintColor = .gray
 
         let item = UIBarButtonItem()
